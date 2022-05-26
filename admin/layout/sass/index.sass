@@ -1,0 +1,5266 @@
+$header-bg: #fafafa
+$header-border-color: #ddd
+$header-icon-hover: #eaeaea
+$trans-val: .3s
+$side-bar-bg: #051d33
+$side-bar-text-color: #cdd2d6
+$side-bar-dash-menu-border-left-color: #ff5252
+$side-bar-menu-hover-border: #bdc3c7
+$side-bar-sub-menu-bg: #020e19
+$dashboard-bg: #eff3f5
+$side-bar-light-theme-bg: #fafafa
+$side-bar-light-theme-text-color: #4e4e4e
+$side-bar-light-theme-link-hover: #2196f3
+$box-hover-arrow-stroke: 3px
+$box-hover-arrow-color: #ff5722
+$todo-border-color: #c2c2c2
+$todo-main-color: #007AE5
+$todo-hover-color: #007ae507
+$todo-secondary-color: #6a6a6a
+body
+  margin: 0
+  padding: 0
+  font-family: 'Saira Condensed', sans-serif
+// ::selection
+//   background-color: $side-bar-bg
+//   color: #fff
+*
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+.mouse-event.mouse-down
+  background-color: #008afc !important
+  color: #fff !important
+.mouse-event.mouse-up
+  background-color: transparent
+  color: #000 !important
+.mouse-event.mouse-leave
+  border: 1px solid #666 !important
+.mouse-event.mouse-leave.no-border
+  border: 1px solid transparent !important
+img
+  max-width: 100%
+a
+  text-decoration: none
+  color: #000
+ul
+  padding-left: 0
+  margin: 0
+  list-style: none
+.container
+  padding: 0 20px
+  margin: 0 auto
+@media (min-width: 768px)
+  .container
+    width: 750px
+@media (min-width: 992px)
+  .container
+    width: 970px
+@media (min-width: 1200px)
+  .container
+    width: 1170px
+.header
+  display: flex
+  justify-content: space-between
+  align-items: center
+  padding: 0 10px
+  height: 65px
+  background-color: $header-bg
+  border-bottom: 1px solid $header-border-color
+  position: relative
+  z-index: 10
+  .logo
+    display: flex
+    grid-gap: 10px
+    .toggle-menu
+      width: 45px
+      height: 45px
+      display: flex
+      align-items: center
+      justify-content: center
+      border-radius: 6px
+      cursor: pointer
+      background-color: transparent
+      @extend .main-transition
+      &:hover
+        background-color: $header-icon-hover
+      i
+        font-size: 20px
+    .toggle-menu.active
+      background-color: $header-icon-hover
+      i
+        color: #008afc
+    .img
+      width: 45px
+      height: 45px
+      border-radius: 6px
+      background-color: #000
+      text-align: center
+      line-height: 45px
+      .brand-name
+        user-select: none
+        color: #fff
+        h1
+          font-size: 30px
+  .search
+    flex: 1
+    display: flex
+    justify-content: center
+    input
+      width: 600px
+      padding: 10px
+      outline: none
+      background-color: transparent
+      border: 1px solid $header-border-color
+      border-radius: 6px
+      height: 45px
+      border-top-right-radius: 0
+      border-bottom-right-radius: 0
+      @extend .main-transition
+      &:focus
+        background-color: #fff
+        border-color: #008afc
+    .search-icon
+      width: 45px
+      height: 45px
+      background-color: #008afc
+      border-top-right-radius: 6px
+      border-bottom-right-radius: 6px
+      cursor: pointer
+      text-align: center
+      i
+        color: #fff
+        font-size: 20px
+        line-height: 45px
+  .profile-menu
+    display: flex
+    grid-gap: 10px
+    .notifications
+      width: 45px
+      height: 45px
+      display: flex
+      align-items: center
+      justify-content: center
+      border-radius: 6px
+      position: relative
+      cursor: pointer
+      @extend .main-transition
+      &:hover
+        background-color: $header-icon-hover
+      i
+        font-size: 20px
+    .notifications.active
+      i
+        color: #008afc
+    .my-profile
+      height: 45px
+      padding: 0 10px
+      border-radius: 6px
+      line-height: 45px
+      font-size: 15px
+      font-weight: 600
+      user-select: none
+      @extend .main-transition
+      border: 1px solid transparent
+      cursor: pointer
+      &:hover
+        background-color: $header-icon-hover
+    .my-profile.active
+      span
+        color: #008afc
+      i
+        color: #008afc
+  .customize-layout
+    position: absolute
+    top: 100%
+    right: 0
+    display: none
+    width: 270px
+    background-color: #333
+    padding: 10px 0
+    @extend .main-transition
+    z-index: 15
+    overflow-y: scroll
+    height: 500px
+    box-shadow: 2px 2px 15px #484848
+    &::-webkit-scrollbar
+      width: 5px
+    &::-webkit-scrollbar-thumb
+      background-color: #008afc
+      border-radius: 6px
+    .divider
+      padding-left: 10px
+      text-transform: uppercase
+      color: #fff
+    .customize-item
+      padding: 0 20px
+      margin-bottom: 5px
+      span
+        display: block
+        margin-bottom: 5px
+        color: $side-bar-text-color
+        font-size: 20px
+        font-weight: 600
+      .en-ds
+        display: flex
+        span
+          display: block
+          width: 50%
+          padding: 10px
+          background-color: #4e4e4e
+          text-align: center
+          margin-bottom: 0
+          cursor: pointer
+          border-left: 4px solid transparent
+        .active
+          background-image: linear-gradient(45deg, #68bcff, #1885dc)
+          color: #fff
+          border-left: 4px solid #fff
+  .customize-profile
+    position: absolute
+    top: 100%
+    right: 0
+    display: none
+    width: 250px
+    background-color: #fff
+    padding: 10px 0
+    @extend .main-transition
+    z-index: 15
+    box-shadow: 1px 1px 10px #ddd
+    ul
+      li
+        a
+          display: flex
+          padding: 10px
+          @extend .main-transition
+          align-items: center
+          &:hover
+            background-color: $header-icon-hover
+          .icon
+            margin-right: 10px
+            i
+              font-size: 19px
+          .text
+            flex: 1
+            span
+              font-weight: 600
+              font-size: 17px
+        .sign-out
+          .text
+            span
+              color: #f44336
+              font-weight: 600
+          .icon
+            i
+              color: #f44336
+.header.fixed
+  position: fixed
+  width: 100%
+  top: 0
+  left: 0
+  box-shadow: 1px 1px 10px #ddd
+.header.dark-theme
+  background-color: $side-bar-bg
+  box-shadow: 1px 1px 10px #252525
+  border-bottom: 1px solid #374a5c
+  .toggle-menu
+    &:hover
+      background-color: $side-bar-sub-menu-bg
+    i
+      color: #fff
+  .profile-menu
+    > div
+      &:hover
+        background-color: $side-bar-sub-menu-bg
+      i
+        color: #fff
+      span
+        color: #fff
+.content
+  display: flex
+  justify-content: space-between
+  // height: calc(100vh - 65px)
+  height: 100%
+  position: relative
+  .side-bar
+    width: 250px
+    height: 100%
+    background-color: $side-bar-bg
+    color: #fff
+    @extend .main-transition
+    .admin-profile
+      padding: 20px 10px
+      display: flex
+      align-items: center
+      justify-content: space-between
+      border-bottom: 1px solid #ffffff33
+      .img
+        border: 1px solid #fff
+        border-radius: 6px
+        margin-right: 10px
+        width: 45px
+        height: 45px
+      .name
+        flex: 1
+        h2
+          font-size: 28px
+          font-weight: 600
+    .admin-menu
+      ul
+        padding: 10px 0
+        &:not(:last-child)
+          border-bottom: 1px solid #ffffff33
+        li
+          a
+            border: 1px solid transparent
+            display: flex
+            align-items: center
+            padding: 10px
+            justify-content: space-between
+            position: relative
+            @extend .main-transition
+            &:hover
+              background-color: #000000fc
+              &::before
+                height: 100%
+                background-color: $side-bar-menu-hover-border
+              .menu-item
+                .text
+                  span
+                    color: #fff
+                .icon
+                  i
+                    animation: menuicon 1.5s linear infinite
+                    color: #fff
+              .menu-arrow
+                i
+                  color: #fff
+            &::before
+              content: ""
+              position: absolute
+              top: 50%
+              transform: translateY(-50%)
+              left: 0
+              width: 4px
+              height: 0
+              transition: height $trans-val ease-in-out
+            .menu-item
+              display: flex
+              align-items: center
+              .icon
+                width: 20px
+                text-align: center
+                margin-right: 10px
+                i
+                  color: $side-bar-text-color
+              .text
+                font-size: 20px
+                span
+                  color: $side-bar-text-color
+            .menu-arrow
+              flex: 1
+              text-align: right
+              i
+                @extend .main-transition
+                color: $side-bar-text-color
+          a.active
+            background-color: #000000fc
+            &::before
+              height: 100%
+              background-color: $side-bar-dash-menu-border-left-color
+            .menu-item
+              .text
+                span
+                  color: #fff
+              .icon
+                i
+                  color: #fff
+            .menu-arrow
+              i
+                transform: rotate(180deg)
+                color: #fff
+        .sub-menu
+          display: none
+          @extend .main-transition
+          .sub-menu-ul
+            padding: 0
+            background-color: $side-bar-sub-menu-bg
+            .sub-menu-li
+              .sub-menu-item
+                padding: 10px 10px 10px 30px
+                color: $side-bar-text-color
+                display: block
+                @extend .main-transition
+                i
+                  width: 20px
+                  text-align: center
+                  margin-right: 10px
+                &:hover
+                  background-color: transparent
+                  color: #fff
+                  &::before
+                    height: 0
+        .sub-menu.show-sub-menu
+          display: block
+  .side-bar.collapsed
+    width: 80px
+    transition: width .3s ease-in-out
+    .admin-profile
+      .img
+        margin: 0
+        flex: 1
+      .name
+        display: none
+    .admin-menu
+      ul
+        li
+          a
+            justify-content: center
+            &:hover
+              background-color: #000000fc
+              &::before
+                height: 100%
+                background-color: $side-bar-menu-hover-border
+              .menu-item
+                .text
+                  span
+                    color: #fff
+                .icon
+                  i
+                    animation: menuicon 1.5s linear infinite
+                    color: #fff
+              .menu-arrow
+                i
+                  color: #fff
+            &::before
+              content: ""
+              position: absolute
+              top: 50%
+              transform: translateY(-50%)
+              left: 0
+              width: 4px
+              height: 0
+              transition: height $trans-val ease-in-out
+            .menu-item
+              display: flex
+              align-items: center
+              .icon
+                width: 45px
+                margin-right: 0
+                flex: 1
+              .text
+                display: none
+            .menu-arrow
+              display: none
+  .side-bar.light-theme
+    background-color: $side-bar-light-theme-bg
+    .admin-profile
+      border-bottom: 1px solid $header-border-color
+      .img
+        border: 1px solid $header-border-color
+      .name
+        h2
+          color: #000
+    .admin-menu
+      ul
+        border-bottom: 1px solid $header-border-color
+        li
+          a
+            &:hover
+              background-color: $side-bar-light-theme-link-hover
+              &::before
+                background-color: #fff
+                height: calc(100% + 5px)
+              .menu-item
+                .icon
+                  i
+                    color: #fff
+                .text
+                  span
+                    color: #fff
+              .menu-arrow
+                i
+                  color: #fff
+            .menu-item
+              .icon
+                i
+                  color: $side-bar-light-theme-text-color
+              .text
+                span
+                  color: $side-bar-light-theme-text-color
+            .menu-arrow
+              i
+                color: $side-bar-light-theme-text-color
+          a.active
+            background-color: #0163b4
+            &::before
+              height: calc(100% + 5px)
+              background-color: #e4f3ff
+            .menu-item
+              .text
+                span
+                  color: #fff
+              .icon
+                i
+                  color: #fff
+            .menu-arrow
+              i
+                transform: rotate(180deg)
+                color: #fff
+        .sub-menu
+          .sub-menu-ul
+            background-color: #e4f3ff
+            .sub-menu-item
+              &:hover
+                span
+                  padding-left: 10px
+              i
+                color: #0163b4
+              span
+                color: #0163b4
+                @extend .main-transition
+            .sub-menu-item.mouse-down
+              i
+                color: #fff !important
+              span
+                color: #fff !important
+  .dashboard
+    flex: 1
+    background-color: $dashboard-bg
+    padding: 10px
+    @extend .main-transition
+    .overall-notifications
+      padding: 10px
+      background-color: #008afc
+      display: flex
+      justify-content: space-between
+      align-items: center
+      border-radius: 6px
+      overflow: hidden
+      margin-bottom: 10px
+      .msg-text
+        span
+          font-size: 19px
+          color: #fff
+          font-weight: bold
+      .msg-icon
+        width: 45px
+        height: 45px
+        border-radius: 50%
+        display: flex
+        align-items: center
+        justify-content: center
+        cursor: pointer
+        overflow: hidden
+        position: relative
+        @extend .main-transition
+        &:hover
+          background-color: #00549a61
+          i
+            color: #fff
+        i
+          font-size: 22px
+          color: #f0f0f0
+        .ripple-effect
+          position: absolute
+          width: 100px
+          height: 100px
+          background-color: #f00
+          z-index: 2
+    .dash-title
+      display: flex
+      align-items: center
+      justify-content: space-between
+      h2
+        // width: 302px
+        width: 0
+        white-space: nowrap
+        overflow: hidden
+        @extend .main-transition
+        border-right: 1px solid #fff
+        animation: border-effect .5s linear, type-writer 3s steps(33) 1s both
+    .notice
+      padding: 30px 0
+      .important-notice
+        padding: 20px
+        background-color: #ffc107
+        min-height: 100px
+        border-radius: 6px
+        box-shadow: 2px 2px 15px #836404
+        h3
+          strong
+            text-decoration: underline
+            color: #3c3c3c
+            font-size: 27px
+        ul
+          li
+            padding: 10px
+            span
+              font-size: 20px
+              line-height: 1
+              font-weight: 500
+          .thanks
+            span
+              font-size: 22px
+              font-weight: 600
+    .dash-stats
+      display: grid
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr))
+      grid-gap: 20px
+      padding: 30px 0
+      .stat
+        padding: 20px
+        background-color: #fff
+        display: flex
+        align-items: center
+        position: relative
+        > span
+          position: absolute
+          width: 20px
+          height: 20px
+          background-color: transparent
+          display: none
+        .top
+          top: -5px
+          left: -5px
+          border-top: $box-hover-arrow-stroke solid $box-hover-arrow-color
+          border-left: $box-hover-arrow-stroke solid $box-hover-arrow-color
+        .bottom
+          bottom: -5px
+          left: -5px
+          border-bottom: $box-hover-arrow-stroke solid $box-hover-arrow-color
+          border-left: $box-hover-arrow-stroke solid $box-hover-arrow-color
+        .right
+          top: -5px
+          right: -5px
+          border-top: $box-hover-arrow-stroke solid $box-hover-arrow-color
+          border-right: $box-hover-arrow-stroke solid $box-hover-arrow-color
+        .left
+          bottom: -5px
+          right: -5px
+          border-bottom: $box-hover-arrow-stroke solid $box-hover-arrow-color
+          border-right: $box-hover-arrow-stroke solid $box-hover-arrow-color
+        &:hover
+          > span
+            display: block
+          .icon
+            i
+              color: $box-hover-arrow-color
+        .icon
+          margin-right: 30px
+          i
+            font-size: 40px
+            color: #633E77
+            @extend .main-transition
+        .total
+          flex: 1
+          text-align: left
+          h3
+            font-size: 50px
+            line-height: 1
+          span
+            color: #747474
+            font-size: 23px
+            display: block
+    .dash-info
+      display: grid
+      grid-template-columns: repeat(auto-fill, minmax(450px, 1fr))
+      grid-gap: 20px
+      padding: 30px 0
+      .info-box
+        background-color: #fff
+        position: relative
+        &:hover
+          > span
+            display: block
+        > span
+          position: absolute
+          width: 20px
+          height: 20px
+          background-color: transparent
+          display: none
+        .top
+          top: -5px
+          left: -5px
+          border-top: $box-hover-arrow-stroke solid $box-hover-arrow-color
+          border-left: $box-hover-arrow-stroke solid $box-hover-arrow-color
+        .bottom
+          bottom: -5px
+          left: -5px
+          border-bottom: $box-hover-arrow-stroke solid $box-hover-arrow-color
+          border-left: $box-hover-arrow-stroke solid $box-hover-arrow-color
+        .right
+          top: -5px
+          right: -5px
+          border-top: $box-hover-arrow-stroke solid $box-hover-arrow-color
+          border-right: $box-hover-arrow-stroke solid $box-hover-arrow-color
+        .left
+          bottom: -5px
+          right: -5px
+          border-bottom: $box-hover-arrow-stroke solid $box-hover-arrow-color
+          border-right: $box-hover-arrow-stroke solid $box-hover-arrow-color
+        .head
+          padding: 20px
+          border-bottom: 1px solid #eaeaea
+        .body
+          padding: 20px
+          @extend .main-transition
+          &:hover
+            background-color: #fafafa
+          &:not(:last-child)
+            border-bottom: 1px solid #eaeaea
+          > div
+            display: flex
+            justify-content: space-between
+            align-items: center
+            padding: 10px 0
+            &:not(:last-child)
+              margin-bottom: 5px
+              border-bottom: 1px solid #eee
+            .title
+              width: 100px
+            .sub-title
+              flex: 1
+              span
+                font-weight: 600
+              .styled
+                border-radius: 50px
+                text-align: center
+                font-weight: 600
+                display: block
+                padding: 3px 20px
+                width: fit-content
+              .honor
+                background-color: #2196f326
+                color: #002d52
+              .finished
+                background-color: #4caf5026
+                color: #004e03
+              .pending
+                background-color: #f4433626
+                color: #aa0c00
+    .my-skills
+      background-color: #fff
+      position: relative
+      padding: 30px 0
+      &:hover
+        > span
+          display: block
+      > span
+        position: absolute
+        width: 20px
+        height: 20px
+        background-color: transparent
+        display: none
+      .top
+        top: -5px
+        left: -5px
+        border-top: $box-hover-arrow-stroke solid $box-hover-arrow-color
+        border-left: $box-hover-arrow-stroke solid $box-hover-arrow-color
+      .bottom
+        bottom: -5px
+        left: -5px
+        border-bottom: $box-hover-arrow-stroke solid $box-hover-arrow-color
+        border-left: $box-hover-arrow-stroke solid $box-hover-arrow-color
+      .right
+        top: -5px
+        right: -5px
+        border-top: $box-hover-arrow-stroke solid $box-hover-arrow-color
+        border-right: $box-hover-arrow-stroke solid $box-hover-arrow-color
+      .left
+        bottom: -5px
+        right: -5px
+        border-bottom: $box-hover-arrow-stroke solid $box-hover-arrow-color
+        border-right: $box-hover-arrow-stroke solid $box-hover-arrow-color
+      .head
+        padding: 20px
+        border-bottom: 1px solid #eaeaea
+        display: flex
+        justify-content: space-between
+        align-items: center
+        ul
+          display: flex
+          grid-gap: 10px
+          li
+            padding: 10px 20px
+            color: #fff
+            border-radius: 50px
+            cursor: pointer
+            border: 1px solid #eaeaea
+            color: #000
+            font-weight: 600
+            user-select: none
+            @extend .main-transition
+            &:hover
+              background-color: #000
+              color: #fff
+          li.active
+            background-color: #000
+            color: #fff
+      .body
+        padding: 20px 
+        display: grid
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr))
+        grid-gap: 20px
+        > div
+          background-color: $dashboard-bg
+          padding: 20px
+        .skill-box
+          .skill-image
+            padding: 3px
+            background-color: #fff
+            width: 100%
+            transform: scale(1)
+            transition: box-shadow .3s ease-in-out, transform .3s ease-in-out
+            &:hover
+              box-shadow: 0 0 0 5px #008afc, 0 0 0 10px #fff
+              transform: scale(1.05) 
+            img
+              height: 100%
+              width: 100%
+              transform: rotate(0deg)
+              transition: transform .3s ease-in-out
+              &:hover
+                transform: rotate(5deg)
+          .skill-name
+            text-align: center
+            padding: 15px 0
+            span
+              font-size: 30px
+              font-weight: 600
+    .project-details
+      padding: 30px 0
+      .details
+        position: relative
+        background-color: #fff
+        &:hover
+          > span
+            display: block
+        > span
+          position: absolute
+          width: 20px
+          height: 20px
+          background-color: transparent
+          display: none
+        .top
+          top: -5px
+          left: -5px
+          border-top: $box-hover-arrow-stroke solid $box-hover-arrow-color
+          border-left: $box-hover-arrow-stroke solid $box-hover-arrow-color
+        .bottom
+          bottom: -5px
+          left: -5px
+          border-bottom: $box-hover-arrow-stroke solid $box-hover-arrow-color
+          border-left: $box-hover-arrow-stroke solid $box-hover-arrow-color
+        .right
+          top: -5px
+          right: -5px
+          border-top: $box-hover-arrow-stroke solid $box-hover-arrow-color
+          border-right: $box-hover-arrow-stroke solid $box-hover-arrow-color
+        .left
+          bottom: -5px
+          right: -5px
+          border-bottom: $box-hover-arrow-stroke solid $box-hover-arrow-color
+          border-right: $box-hover-arrow-stroke solid $box-hover-arrow-color
+        &:not(:last-child)
+          margin-bottom: 10px 
+        .head
+          padding: 20px
+          display: flex
+          justify-content: space-between
+          align-items: center
+          border-bottom: 1px solid #eaeaea
+          h2
+          .icon
+            width: 45px
+            height: 45px
+            display: flex
+            align-items: center
+            justify-content: center
+            border-radius: 6px
+            border: 1px solid #eaeaea
+            cursor: pointer
+            @extend .main-transition
+            &:hover
+              background-color: $header-border-color
+            i
+              font-size: 20px
+        .body
+          .table-header
+            display: flex
+            justify-content: space-between
+            align-items: center
+            padding: 20px
+            border-bottom: 2px solid #eaeaea
+            grid-gap: 10px
+            .id
+              width: 30px
+            .description
+              flex: 1
+            .action
+              width: 150px
+          .table-data
+            padding: 20px
+            display: flex
+            justify-content: space-between
+            align-items: center
+            grid-gap: 10px
+            @extend .main-transition
+            &:hover
+              background-image: linear-gradient(45deg, #fcfcfc, #f4f4f4)
+            &:nth-child(odd)
+              background-color: #f0f0f0
+            .for-id
+              width: 30px
+              position: relative
+              input
+                appearance: none
+                &::before
+                  content: ""
+                  position: absolute
+                  width: 25px
+                  height: 25px
+                  border-radius: 50%
+                  left: 0
+                  top: 50%
+                  transform: translateY(-50%)
+                  border: 1px solid #b4b4b4
+                &::after
+                  content: "\f00c"
+                  font-family: "Font Awesome 5 Free" !important
+                  font-weight: 900
+                  position: absolute
+                  top: 50%
+                  transform: translateY(-50%)
+                  left: 5px
+                  font-size: 18px
+                  display: none
+                &:checked
+                  &::before
+                    background-color: #008afc
+                    border: 1px solid #90cdff
+                  &::after
+                    color: #fff
+                    display: block
+            .for-desc
+              flex: 1
+            .for-action
+              width: 150px
+              display: flex
+              grid-gap: 10px
+              a
+                padding: 4px 15px
+                display: block
+                border-radius: 30px
+                font-weight: 600
+              .edit
+                background-color: #4caf5038
+                color: #023404
+              .delete
+                background-color: #f4433638
+                color: #3a0400
+    .to-do-list
+      padding: 30px 0
+      .holder
+        background-color: #fff
+        padding: 20px
+        position: relative
+        &:hover
+          > span
+            display: block
+        > span
+          position: absolute
+          width: 20px
+          height: 20px
+          background-color: transparent
+          display: none
+        .top
+          top: -5px
+          left: -5px
+          border-top: $box-hover-arrow-stroke solid $box-hover-arrow-color
+          border-left: $box-hover-arrow-stroke solid $box-hover-arrow-color
+        .bottom
+          bottom: -5px
+          left: -5px
+          border-bottom: $box-hover-arrow-stroke solid $box-hover-arrow-color
+          border-left: $box-hover-arrow-stroke solid $box-hover-arrow-color
+        .right
+          top: -5px
+          right: -5px
+          border-top: $box-hover-arrow-stroke solid $box-hover-arrow-color
+          border-right: $box-hover-arrow-stroke solid $box-hover-arrow-color
+        .left
+          bottom: -5px
+          right: -5px
+          border-bottom: $box-hover-arrow-stroke solid $box-hover-arrow-color
+          border-right: $box-hover-arrow-stroke solid $box-hover-arrow-color
+        > div
+          &:not(:last-child)
+            margin-bottom: 10px
+        .to-do
+          padding: 15px
+          display: flex
+          justify-content: space-between
+          align-items: center
+          grid-gap: 15px
+          background-color: #f8f9fa
+          border-left: 3px solid $box-hover-arrow-color
+          position: relative
+          overflow: hidden
+          &:hover
+            .edit
+              right: 20px
+          .edit
+            position: absolute
+            top: 50%
+            transform: translateY(-50%)
+            right: -30px
+            cursor: pointer
+            transition: right .3s ease-in-out
+            i
+              color: $box-hover-arrow-color
+              font-size: 23px
+          .icon-move
+            cursor: move
+            i
+              &:first-child
+                margin-left: 4px
+          .to-do-text
+            flex: 1
+            display: flex
+            align-items: center
+            grid-gap: 15px
+            input[type="checkbox"]
+              appearance: none
+              position: relative
+              width: 30px
+              cursor: pointer
+              &:checked
+                + label
+                  color: #f00
+                &::before
+                  background-color: $box-hover-arrow-color
+                  border-color: #ff744a
+                &::after
+                  display: block
+              &:hover
+                &::before
+                  border-color: $box-hover-arrow-color
+              &::before
+                content: ""
+                position: absolute
+                top: 50%
+                left: 50%
+                transform: translate(-50%, -50%) rotate(0deg)
+                width: 25px
+                height: 25px
+                border: 2px solid #D3CFC8
+                cursor: pointer
+                @extend .main-transition
+              &::after
+                font-family: "Font Awesome 5 Free"
+                font-weight: 900
+                content: "\f00c"
+                font-size: 10px
+                position: absolute
+                top: -7px
+                left: 8px
+                font-size: 15px
+                color: #fff
+                display: none
+            input[type="text"]
+              position: relative
+              height: 30px
+              line-height: 30px
+              padding: 0 10px
+              outline: none
+              border: 1px solid #D3CFC8
+              width: 800px
+              display: none
+              z-index: 2
+              font-size: 13px
+            label
+              position: relative
+              font-weight: 600
+              font-size: 17px
+              z-index: 1
+              .completed-label
+                background-color: #00a607
+                color: #fff
+                padding: 0 12px
+                border-radius: 30px
+                font-weight: 600
+                display: none
+                margin-left: 15px
+            label.completed
+              text-decoration: line-through
+              text-decoration-thickness: 2px
+              color: #a2a2a2
+              text-decoration-color: #f44336
+              .completed-label
+                display: inline-block
+    .footer
+      padding: 20px
+      text-align: center
+      border-top: 1px solid #eaeaea
+      border-bottom: 1px solid #eaeaea
+      background-color: #fff
+      position: relative
+      z-index: 11
+      p
+        strong
+          color: #051d33
+    .footer.fixed-footer
+      position: fixed
+      width: 100%
+      bottom: 0
+      left: 0
+    .footer.dark-theme
+      border-color: #374a5c
+      background-color: $side-bar-bg
+      p
+        color: #fff
+        strong
+          color: #58b3ff
+.header.content-has-fixed-menu
+  padding-left: 260px
+.content.fixed-menu
+  .side-bar
+    position: fixed
+    top: 0
+    left: 0
+    z-index: 12
+  .dashboard
+    margin-left: 250px
+.content.header-has-fixed-menu
+  height: 100% 
+  .side-bar
+    padding-top: 65px
+  .dashboard
+    padding-top: 75px
+.content.adjust-padding
+  .side-bar
+    padding-top: 0 !important
+.context-menu
+  ul
+    li
+      a
+        padding: 10px 30px 10px 35px
+        display: flex
+        justify-content: space-between
+        align-items: center
+        transition: .1s
+        &:hover
+          background-color: #ddd
+        .text
+          display: flex
+          align-items: center
+          i
+            margin-right: 10px
+            font-size: 10px
+            color: #000
+          span
+            font-size: 16px
+        i
+          flex: 1
+          text-align: right
+          color: #1b1bff
+// To Do List Page
+.todo
+  width: 100%
+  border-bottom: 1px solid $todo-border-color
+  background-color: #fff
+  display: flex
+  justify-content: space-between
+  align-items: center
+  padding: 0 20px
+  .title
+    h1
+      color: $todo-main-color
+      font-style: italic
+  .menu
+    flex: 1
+    height: 60px
+    position: relative
+    .others-drop-down.show-menu
+      top: 100%
+      opacity: 1
+      z-index: 5
+      visibility: visible
+    .others-drop-down
+      position: absolute
+      top: calc(100% + 80px)
+      left: 0
+      width: 100%
+      background-color: #fff
+      z-index: 5
+      box-shadow: 1px 6px 10px #aaa
+      border-radius: 6px
+      padding: 30px
+      border-top: 3px solid $todo-main-color
+      opacity: 0
+      z-index: -1
+      visibility: hidden
+      transition: opacity .3s ease-in-out, top .3s ease-in-out
+      .links-holder
+        display: grid
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr))
+        gap: 15px
+        border-bottom: 1px solid #ddd
+        padding: 0 0 15px
+        .others-link
+          padding: 15px
+          display: flex
+          align-items: flex-start
+          justify-content: space-between
+          @extend .main-transition
+          &:not(:last-child)
+            border-right: 1px solid #ddd
+          &:hover
+            border-color: transparent
+            background-color: #fafafa
+            border-radius: 6px
+          .img
+            margin-right: 20px
+          .text
+            flex: 1
+            height: 100%
+            display: flex
+            flex-direction: column
+            justify-content: space-between
+            h2
+              font-size: 22px
+              line-height: 1
+            span
+              font-weight: 500
+              font-size: 18px
+              color: #666
+      .text-links
+        padding: 15px 0 0
+        > div
+          display: flex
+          gap: 15px
+          > div
+            width: 30%
+            > a
+              display: flex
+              width: 100%
+              padding: 10px
+              align-items: center
+              justify-content: space-between
+              color: $todo-main-color
+              position: relative
+              z-index: 2
+              &:hover
+                &::before
+                  width: 100%
+              &::before
+                content: ""
+                position: absolute
+                top: 0
+                left: 0
+                height: 100%
+                background-color: #fafafa
+                width: 0
+                z-index: -1
+                @extend .main-transition
+              i
+                margin-right: 10px
+              span
+                flex: 1
+                font-size: 20px
+                font-weight: 600
+              &:not(:last-child)
+                border-bottom: 1px solid #e9e6e6
+    .list-menu
+      width: 600px
+      margin: 0 auto
+      height: 100%
+      ul
+        width: 100%
+        height: 100%
+        display: flex
+        align-items: center
+        justify-content: center
+        gap: 15px
+        li
+          height: 100%
+          a
+            height: 100%
+            padding: 0 15px
+            display: flex
+            align-items: center
+            justify-content: center
+            border-radius: 4px
+            position: relative
+            font-size: 20px
+            font-weight: 500
+            color: #6e6e6e
+            border-top-left-radius: 4px
+            border-top-right-radius: 4px
+            &:hover
+              color: #000
+              background-color: #fafafa
+              &::before
+                width: 100%
+            &::before
+              content: ""
+              position: absolute
+              top: calc(100% - 3px)
+              left: 50%
+              transform: translateX(-50%)
+              height: 3px
+              background-color: $todo-main-color
+              width: 0
+              @extend .main-transition
+  .layout
+    .icon
+      width: 45px
+      height: 45px
+      display: flex
+      align-items: center
+      justify-content: center
+      border-radius: 6px
+      border: 1px solid transparent
+      cursor: pointer
+      position: relative
+      @extend .main-transition
+      &:hover
+        background-color: $todo-hover-color
+        border: 1px solid $todo-border-color
+        .tooltip
+          display: block
+        i
+          color: $todo-main-color
+      i
+        font-size: 20px
+        color: $todo-secondary-color
+      .tooltip
+        display: none
+        position: absolute
+        top: calc(100% + 12px)
+        left: 50%
+        transform: translateX(-50%)
+        width: 80px
+        background-color: #4c4c4c
+        color: #fff
+        border-radius: 6px
+        padding: 4px 12px
+        box-shadow: 2px 2px 8px #454545
+        text-align: center
+        &::before
+          content: ""
+          position: absolute
+          top: -12px
+          left: 50%
+          transform: translateX(-50%)
+          border-style: solid
+          border-width: 6px
+          border-color: transparent transparent #4c4c4c transparent
+    .icon.active
+      background-color: $todo-hover-color
+      border: 1px solid $todo-border-color
+.new-todo
+  width: 1000px
+  border-radius: 6px
+  margin: 10px auto 
+  .new
+    padding: 10px 20px
+    display: flex
+    align-items: center
+    justify-content: space-between
+    cursor: pointer
+    border: 1px solid #eee
+    @extend .main-transition
+    width: fit-content
+    border-radius: 40px
+    &:hover
+      background-color: #007ae521
+      color: $todo-main-color
+    i
+      margin-right: 10px
+      font-size: 20px
+    span
+      flex: 1
+      font-weight: 600
+      font-size: 20px
+.todo-list
+  width: 1000px
+  border-radius: 6px
+  margin: 0 auto
+  border: 1px solid $todo-border-color
+  > div
+    padding: 20px
+  .list-header
+    background-color: #007ae51f
+    display: flex
+    justify-content: space-between
+    align-items: center
+    .header-title
+      h2
+        color: $todo-secondary-color
+    .todo-action
+      opacity: 0
+      ul
+        display: flex
+        grid-gap: 10px
+        li
+          width: 45px
+          height: 45px
+          border-radius: 6px
+          display: flex
+          align-items: center
+          justify-content: center
+          cursor: pointer
+          position: relative
+          @extend .main-transition
+          &:hover
+            background-color: #007ae51f
+            .action-tooltip
+              display: block
+            i
+              color: $todo-main-color
+          i
+            font-size: 25px
+            color: $todo-secondary-color
+          .action-tooltip
+            display: none
+            position: absolute
+            top: calc(100% + 12px)
+            left: 50%
+            transform: translateX(-50%)
+            border-radius: 6px
+            padding: 4px 10px
+            font-weight: 600
+            background-color: #4c4c4c
+            color: #fff
+            &::before
+              content: ""
+              position: absolute
+              top: -12px
+              left: 50%
+              transform: translateX(-50%)
+              border-style: solid
+              border-width: 6px
+              border-color: transparent transparent #454545 transparent
+          .expand
+            width: 150px
+            text-align: center
+    .todo-action.show-actions
+      opacity: 1
+  .list-body
+    .check-all
+      border-bottom: 2px solid #cacaca
+      padding: 10px 0
+      display: flex
+      justify-content: space-between
+      align-items: center
+      .check
+        position: relative
+        input
+          appearance: none
+          cursor: pointer
+          &::before
+            content: ""
+            position: absolute
+            width: 25px
+            height: 25px
+            border: 1px solid #8e8c8c
+            left: 0
+            top: 50%
+            transform: translateY(-50%)
+            &:hover
+              border: 1px solid $todo-main-color
+          &::after
+            font-family: "Font Awesome 5 Free"
+            content: "\f00c"
+            font-weight: 900
+            font-size: 20px
+            position: absolute
+            top: 50%
+            transform: translateY(-50%)
+            left: 4px
+            display: none
+          &:checked
+            &::before
+              background-color: $todo-main-color
+              border: 1px solid $todo-main-color
+            &::after
+              display: block
+              color: #fff
+        label
+          margin-left: 40px
+          font-weight: 600
+          font-size: 20px
+          user-select: none
+      .mark-all
+        display: none
+        span
+          padding: 8px
+          display: block
+          font-weight: 600
+          font-size: 18px
+          @extend .main-transition
+          cursor: pointer
+          &:hover
+            background-color: #007ae521
+            color: $todo-main-color
+    .the-todo
+      margin: 20px 0 0
+      .todo-box
+        padding: 15px
+        border: 1px solid #c2c2c2
+        border-left: 3px solid $todo-main-color
+        display: flex
+        justify-content: space-between
+        align-items: center
+        .check
+          position: relative
+          input
+            appearance: none
+            cursor: pointer
+            &::before
+              content: ""
+              position: absolute
+              width: 25px
+              height: 25px
+              border: 1px solid #8e8c8c
+              left: 0
+              top: 50%
+              transform: translateY(-50%)
+              &:hover
+                border: 1px solid $todo-main-color
+            &::after
+              font-family: "Font Awesome 5 Free"
+              content: "\f00c"
+              font-weight: 900
+              font-size: 20px
+              position: absolute
+              top: 50%
+              transform: translateY(-50%)
+              left: 4px
+              display: none
+            &:checked
+              &::before
+                background-color: $todo-main-color
+                border: 1px solid $todo-main-color
+              &::after
+                display: block
+                color: #fff
+        .todo-text
+          margin-left: 50px
+          flex: 1
+          .act-as-header
+            font-weight: 600
+            font-size: 22px
+            display: block
+          .act-as-header.completed
+            text-decoration: line-through
+            color: #a4a4a4
+          .act-as-header.completed + label
+            color: #a4a4a4
+        &:not(:last-child)
+          margin-bottom: 10px
+.todo-popup
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  background-color: rgba(0, 0, 0, .2)
+  z-index: 2
+  transition: left .5s ease-in-out
+  .new-box
+    width: 500px
+    background-color: #fff
+    padding: 20px
+    position: absolute
+    top: 50%
+    transform: translateY(-50%)
+    margin-left: -250px
+    left: 50%
+    border-radius: 6px
+    .edit-box
+      border: 1px solid transparent
+      border-radius: 6px
+      overflow: hidden
+      &:first-child
+        margin-top: 55px
+      &:not(:last-child)
+        margin-bottom: 15px
+      .edit-head
+        background-color: #fafafa
+        padding: 15px
+        display: flex
+        justify-content: space-between
+        align-items: center
+        cursor: pointer
+      .edit-body
+        display: none
+        padding: 15px
+        background-color: #fcfcfc
+        .input
+          display: flex
+          align-items: center
+          justify-content: space-between
+          &:not(:last-child)
+            margin-bottom: 10px
+          label
+            width: 80px
+            text-align: left
+            font-weight: 600
+          input
+            flex: 1
+            width: 100%
+            padding: 10px
+            border: 1px solid #ddd
+            outline: none
+            &:focus
+              border: 1px solid #ffafcb
+    .edit-box.current-expanded
+      border: 1px solid #e91e63
+      .edit-head
+        .arrow
+          transform: rotate(180deg)
+      .edit-body
+        display: block
+    .submit-form
+      display: flex
+      justify-content: flex-end
+      button
+        background-color: #e91e6312
+        color: #e91e63
+        padding: 10px
+        cursor: pointer
+        font-weight: 600
+        font-size: 20px
+        border-radius: 6px
+        border: none
+        outline: none
+        font-family: "Saira Condensed",sans-serif
+        @extend .main-transition
+        &:hover
+          background-color: #e91e6326
+    .add-icon
+      position: absolute
+      left: 50%
+      width: 100px
+      height: 100px
+      margin-left: -50px
+      top: -50px
+      background-color: $todo-main-color
+      border-radius: 50%
+      display: flex
+      align-items: center
+      justify-content: center
+      i
+        color: #fff
+        font-size: 40px
+    .for-edit
+      background-color: #e91e63
+    .add-todo
+      margin-top: 40px
+      .add-title
+        text-align: center
+        margin-bottom: 10px
+        h2
+      form
+        .input
+          display: flex
+          align-items: center
+          justify-content: space-between
+          &:not(:last-child)
+            margin-bottom: 10px
+          label
+            width: 80px
+            text-align: left
+            font-weight: 600
+          input
+            flex: 1
+            width: 100%
+            padding: 10px
+            border: 1px solid #ddd
+            outline: none
+            &:focus
+              border: 1px solid $todo-main-color
+        .submit
+          display: flex
+          justify-content: flex-end
+          padding-top: 15px
+          span, button
+            padding: 5px 12px
+            cursor: pointer
+            font-weight: 600
+            font-size: 20px
+            border-radius: 6px
+            border: none
+            outline: none
+            &:first-child
+              margin-right: 10px
+          .cancel
+            &:hover
+              background-color: #007ae521
+              color: $todo-main-color
+          .submit-todo
+            background-color: $todo-main-color
+            color: #fff
+          .submit-edit
+            background-color: #e91e63
+            color: #fff
+    .close-box
+      position: absolute
+      top: 10px
+      right: 10px
+      width: 40px
+      height: 40px
+      border-radius: 50%
+      text-align: center
+      line-height: 40px
+      cursor: pointer
+      font-size: 20px
+      &:hover
+        background-color: #ddd
+  .edit-box
+    .add-todo
+      form
+        .input
+          input
+            &:focus
+              border: 1px solid #e91e63
+.todo-popup.hide-popup
+  left: -100%
+  overflow: hidden
+.loading
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  background-color: #fff
+  z-index: 3
+  display: none
+  .bouncing-balls
+    position: absolute
+    left: 50%
+    top: 50%
+    margin-left: -60px
+    margin-top: -40px
+    width: 120px
+    height: 80px
+    display: flex
+    align-items: flex-end
+    grid-gap: 10px
+    span
+      width: 20px
+      height: 20px
+      background-color: $todo-main-color
+      border-radius: 50%
+      animation: bounce ease-in-out .5s infinite alternate
+      &:nth-child(2)
+        animation-delay: .1s
+        opacity: .8
+      &:nth-child(3)
+        animation-delay: .2s
+        opacity: .6
+      &:last-child
+        animation-delay: .3s
+        opacity: .4
+.loading.show
+  display: block
+// Boost Classes
+.main-transition
+  transition: $trans-val ease-in-out
+// settings page
+.settings
+  width: 1000px
+  margin: 0 auto 20px
+  padding: 0 10px
+  position: relative
+  .setting-header
+    padding: 20px 0
+    display: flex
+    justify-content: space-between
+    align-items: center
+    .back
+      width: 45px
+      height: 45px
+      border-radius: 50%
+      display: flex
+      align-items: center
+      justify-content: center
+      cursor: pointer
+      @extend .main-transition
+      i
+        font-size: 30px
+      &:hover
+        background-color: #eee
+    .title
+      flex: 1
+      text-align: center
+      h2
+        font-size: 35px
+  .setting
+    .box
+      cursor: pointer
+      padding: 20px
+      width: 100%
+      display: flex
+      justify-content: space-between
+      align-items: center
+      border: 1px solid #c0c0c0
+      @extend .main-transition
+      border-radius: 6px
+      &:not(:last-child)
+        margin-bottom: 10px
+      &:hover
+        box-shadow: 1px 1px 10px #a6a6a6
+        .icon
+          i
+            color: #007ae9
+      .icon
+        width: 45px
+        text-align: center
+        font-size: 27px
+      .text
+        flex: 1
+        margin-left: 30px
+        h3
+          font-size: 25px
+        p
+          font-size: 20px
+          color: #777
+          line-height: 1
+  .added-the-manager
+    display: flex
+    justify-content: space-between
+    align-items: center
+    background-color: #fff
+    padding: 10px
+    border-radius: 6px
+    // color: #4BB543
+    box-shadow: 1px 1px 10px #ddd
+    .icon
+      width: 50px
+      text-align: center
+      margin-right: 20px
+      i
+        font-size: 40px
+        color: #4BB543
+    h3
+      flex: 1
+      font-weight: bold
+      font-size: 20px
+      strong
+        color: #087200
+        text-transform: capitalize
+    .close
+      width: 50px
+      text-align: center
+      font-size: 20px
+      color: #333
+      cursor: pointer
+      i
+        color: #f44336
+        &:hover
+          color: #000
+  // add manager template
+  .add-manager
+    form
+      > h3
+        font-size: 25px
+        margin: 10px 0
+        width: fit-content
+        border-bottom: 2px solid #9c27b0
+      .notes
+        margin: 15px 0
+        padding: 20px 10px
+        border: 1px solid #eee
+        border-radius: 6px
+        display: flex
+        justify-content: space-between
+        align-items: center
+        box-shadow: 1px 1px 10px #ddd
+        &:hover
+          box-shadow: 1px 1px 18px #d2d2d2
+        .icon
+          img
+            margin-right: 20px
+            width: 100px
+        .text
+          flex: 1
+          h3
+            color: #f44336
+          h4
+            padding: 10px
+            border-radius: 6px
+            color: #424242
+            font-size: 19px
+            margin: 10px 0 0
+            box-shadow: 1px 1px 10px #d6d6d6
+            border-left: 4px solid $todo-main-color
+      .input
+        padding: 8px 0
+        .error
+          width: fit-content
+          background-color: #ff00000d
+          padding: 2px 7px
+          position: relative
+          border-radius: 6px
+          z-index: 2
+          &::before
+            content: ""
+            position: absolute
+            top: 100%
+            left: 10px
+            border-style: solid
+            border-width: 7px
+            border-color: #ff00000d transparent transparent transparent
+          p
+            color: #dd0f00
+            font-weight: 600
+            font-size: 20px
+        .btns
+          > input, a
+            display: block
+            width: 100%
+            padding: 10px
+            border-radius: 6px
+            border: none
+            outline: none
+            cursor: pointer
+            font-family: "Saira Condensed",sans-serif
+            font-size: 22px
+            font-weight: 600
+            text-align: center
+            @extend .main-transition
+            &:last-child
+              background-color: #efefef
+              &:hover
+                background-color: #b3b1b1
+            &:not(:last-child)
+              background-color: $todo-main-color
+              color: #fff
+              margin-bottom: 5px
+              &:hover
+                background-color: #0167c1
+        .the-input
+          position: relative
+          select
+            width: 100%
+            padding: 10px
+            border-radius: 6px
+            outline: none
+            border: 2px solid #626262
+            font-weight: 700
+            font-size: 20px
+            font-family: "Saira Condensed",sans-serif
+            + span
+              display: block
+              color: #777
+              font-size: 19px
+              font-weight: 700
+              margin-top: 3px
+          > input
+            width: 100%
+            padding: 15px 0
+            border: none
+            border-bottom: 2px solid #626262
+            outline: none
+            font-family: "Saira Condensed",sans-serif
+            font-size: 18px
+            line-height: 1.1
+            &:focus
+              border-color: #007ae5 !important
+              + div
+                i
+                  color: $todo-main-color
+          .input-icon
+            position: absolute
+            right: 10px
+            top: 50%
+            transform: translateY(-50%)
+            color: #777
+            font-size: 25px
+  // delete manager template
+  .message.success
+    box-shadow: 0px 0px 0px 2px #fff, 0px 0px 3px 4px #4caf50
+  .message
+    position: fixed
+    left: 20px
+    bottom: 20px
+    background-color: #222
+    border-radius: 6px
+    min-width: 400px
+    padding: 15px 10px
+    z-index: 10
+    box-shadow: 0px 0px 0px 2px #fff, 0px 0px 3px 4px #f00
+    display: flex
+    justify-content: space-between
+    align-items: center
+    grid-gap: 15px
+    i
+      color: #fff
+      font-size: 25px
+    span
+      font-size: 20px
+      color: #fff
+      flex: 1
+    .undo
+      display: flex
+      justify-content: space-between
+      align-items: center
+  .delete-manager
+    .assets.fixed
+      position: sticky
+      top: 0
+      left: 0
+      z-index: 4
+      background-color: #fff
+      border-radius: 0
+      border-bottom: 2px solid #007ae5
+    .assets
+      padding: 20px
+      border-radius: 6px
+      box-shadow: 1px 1px 10px #ddd
+      display: flex
+      justify-content: space-between
+      align-items: center
+      grid-gap: 30px
+      transition: .2 ease
+      .select-all
+        width: 80px
+        form
+          width: 100%
+          display: flex
+          align-items: center
+          justify-content: space-between
+          position: relative
+          .select-all-managers.disabled
+            user-select: none
+            pointer-events: none
+          input
+            -moz-appearance: none 
+            appearance: none 
+            cursor: pointer
+            &::before
+              content: ""
+              position: absolute
+              top: 50%
+              right: -15px
+              width: 25px
+              height: 25px
+              border: 2px solid #b7b7b7
+              border-radius: 6px
+              transform: translateY(-50%)
+            &::after
+              content: "\f00c"
+              font-family: "Font Awesome 5 Free" !important
+              font-weight: 900
+              font-size: 20px
+              position: absolute
+              right: -10px
+              top: 50%
+              transform: translateY(-50%)
+              color: #fff
+            &:checked
+              &::before
+                background-color: $todo-main-color
+                border-color: transparent
+              &::after
+                color: #fff
+          label
+            font-size: 18px
+            font-weight: 600
+            cursor: pointer
+      .search
+        flex: 1
+        input
+          width: 100%
+          padding: 10px
+          outline: none
+          border: none
+          box-shadow: 2px 2px 10px #cacaca
+          border-radius: 6px
+          font-family: "Saira Condensed",sans-serif
+          font-size: 18px
+          &:focus
+            box-shadow: 0 0 0 2px #d4d4d4, 0 0 0 4px #007ae5, 1px 1px 5px inset #ccc
+      .sort
+        width: 80px
+        display: flex
+        justify-content: flex-end
+        align-items: center
+        grid-gap: 10px
+        span
+          font-size: 18px
+          font-weight: 600
+        a
+          font-size: 25px
+          position: relative
+          &:hover
+            .sort-tooltip
+              display: block
+          .sort-tooltip
+            position: absolute
+            top: calc(100% + 7px)
+            left: 50%
+            transform: translateX(-50%)
+            background-color: $todo-main-color
+            padding: 4px 10px
+            min-width: 70px
+            text-align: center
+            border-radius: 6px
+            box-shadow: 1px 1px 10px #868686
+            display: none
+            @extend .main-transition
+            span
+              color: #fff
+              font-weight: 600
+              font-size: 20px
+            &::before
+              content: ""
+              position: absolute
+              bottom: 100%
+              left: 50%
+              transform: translateX(-50%)
+              border-width: 7px
+              border-style: solid
+              border-color: transparent transparent $todo-main-color transparent
+    .total-mangers
+      padding: 30px 0
+      display: flex
+      justify-content: space-between
+      align-items: center
+      .total
+        span
+          display: block
+          &:first-child
+            font-size: 40px
+            font-weight: 600
+            line-height: 1
+          &:last-child
+            color: #777
+      .delete-all
+        transition: transform .5s ease-in-out, opacity .3s .2s ease-in-out
+        position: relative
+        z-index: 3
+        opacity: 0
+        border-radius: 50%
+        &:hover
+          .proceed
+            transform: translateY(-50%) rotateX(0)
+        .proceed
+          position: absolute
+          min-width: 300px
+          background-color: #fff
+          box-shadow: 1px 1px 10px #ddd
+          top: 50%
+          padding: 10px
+          right: 40px
+          transform: translateY(-50%) rotateX(90deg)
+          border-radius: 6px
+          transition: transform .3s ease-in-out
+          &::before
+            content: ""
+            position: absolute
+            top: 50%
+            transform: translateY(-50%)
+            right: -14px
+            border-style: solid
+            border-width: 7px
+            border-color: transparent transparent transparent #fff
+          .are-you-sure
+            text-align: center
+            i
+              display: block
+              margin: 25px 0
+              font-size: 60px
+              color: #808080
+            span
+              color: #404040
+              font-size: 18px
+              font-weight: 600
+              display: block
+              &:last-child
+                font-size: 23px
+          form
+            input
+              margin: 15px 0
+              padding: 10px
+              width: 100%
+              background-color: #f44336
+              font-family: "Saira Condensed",sans-serif
+              outline: none
+              border: none
+              border-radius: 6px
+              color: #fff
+              font-weight: 600
+              font-size: 20px
+              cursor: pointer
+        > i
+          font-size: 30px
+          color: #f44336
+          cursor: pointer
+          &:hover
+            color: #fc3b3b
+      .delete-all.show
+        opacity: 1
+      .delete-all.attention
+        transform: scale(3)
+        // box-shadow: 0 0 0 30px #fff, 0 0 0 33px #f44336, 0 0 0 50px #fff, 0 0 0 53px #f44336, 0 0 0 80px #fff, 0 0 0 83px #f44337
+    .managers
+      .table
+        .head
+          display: flex
+          justify-content: space-between
+          grid-gap: 20px
+          border-bottom: 1px solid #b7b7b7
+          h2
+            width: 250px
+            &:last-child
+              text-align: center
+        .body
+          padding: 10px 0
+          .no-manager-found
+            padding: 40px 0
+            text-align: center
+            > i
+              display: block
+              font-size: 100px
+              color: #727272
+            span
+              display: block
+              font-size: 20px
+              margin: 20px 0
+              font-weight: 600
+              color: #404040
+            a
+              display: block
+              width: fit-content
+              padding: 10px
+              background-color: $todo-main-color
+              margin: 0 auto
+              border-radius: 6px
+              font-weight: 600
+              color: #fff
+              font-size: 20px
+              box-shadow: 1px 3px 4px 1px #fff
+              @extend .main-transition
+              &:hover
+                transform: translateX(5px)
+                box-shadow: 1px 3px 4px 1px #3f3f3f
+              i
+                color: #fff
+          .data
+            padding: 10px 0
+            border-bottom: 1px solid #9c9c9c
+            &:hover
+              form
+                .other-data
+                  transform: rotateY(0)
+            form
+              display: flex
+              justify-content: space-between
+              position: relative
+              .other-data
+                transform: rotateY(90deg)
+                position: absolute
+                bottom: calc(100% + 20px)
+                min-width: 500px
+                background-color: #fff
+                box-shadow: 2px 2px 10px #929292
+                left: 0
+                border-radius: 6px
+                border: 1px solid #c1c1c1
+                transition: transform .3s ease-in-out
+                &::before
+                  content: ""
+                  position: absolute
+                  top: 100%
+                  left: 20px
+                  border-style: solid
+                  border-width: 10px
+                  border-color: #fff transparent transparent transparent
+                .data-title
+                  padding: 10px 30px
+                  display: flex
+                  justify-content: space-between
+                  align-items: center
+                  border-bottom: 1px solid #b7b7b7
+                  h2
+                  i
+                    color: $todo-main-color
+                    font-size: 30px
+                .others
+                  padding: 10px 30px
+                  > span
+                    color: #666
+                    margin: 0px 0px 15px
+                    display: block
+                  .other
+                    display: flex
+                    align-items: center
+                    justify-content: space-between
+                    &:not(:last-child)
+                      margin-bottom: 10px
+                    span
+                      flex: 1
+                    i
+                      width: 40px
+                      text-align: left
+                      font-size: 25px
+                      color: #565656
+                  .password
+                    position: relative
+                    cursor: pointer
+                    &:hover
+                      .copy
+                        transform: rotateX(0deg)
+                    .copy
+                      transform: rotateX(90deg)
+                      transition: transform .3s ease-in-out
+                      position: absolute
+                      top: calc(100% + 7px)
+                      left: 0
+                      width: 100%
+                      padding: 10px
+                      box-shadow: 1px 1px 10px #ddd
+                      border-radius: 6px
+                      z-index: 2
+                      background-color: #fff
+                      &::before
+                        content: ""
+                        position: absolute
+                        bottom: 100%
+                        left: 50%
+                        transform: translateX(-50%)
+                        border-style: solid
+                        border-width: 10px
+                        border-color: transparent transparent #fff transparent
+                      .copy-text
+                        display: flex
+                        justify-content: space-between
+                        align-items: center
+                        > i
+                          font-size: 23px
+                          color: #4caf50
+                        span
+                          font-weight: 600
+                          i
+                            color: #4caf50
+                            position: relative
+                            top: 4px
+                            float: right
+              span
+                width: 250px
+                font-size: 20px
+                position: relative
+                font-weight: 500
+                .label
+                  display: none
+                input
+                  -moz-appearance: none 
+                  appearance: none 
+                  cursor: pointer
+                  &::before
+                    content: ""
+                    position: absolute
+                    top: 50%
+                    left: 0
+                    width: 20px
+                    height: 20px
+                    border: 2px solid #b7b7b7
+                    border-radius: 6px
+                    transform: translateY(-50%)
+                  &::after
+                    content: "\f00c"
+                    font-family: "Font Awesome 5 Free" !important
+                    font-weight: 900
+                    font-size: 20px
+                    position: absolute
+                    left: 2px
+                    top: 50%
+                    transform: translateY(-50%)
+                    color: #fff
+                  &:checked
+                    &::before
+                      background-color: $todo-main-color
+                      border-color: transparent
+                    &::after
+                      color: #fff
+              .action
+                text-align: center
+                button
+                  background-color: transparent
+                  border: none
+                  outline: none
+                  i
+                    font-size: 25px
+                    cursor: pointer
+                    color: #f44336
+  .edit-manager
+    .search-for-edit.show-search-bar
+      .search-icon
+        display: none
+      .search-input
+        transform: rotateX(0deg)
+    .search-for-edit
+      position: relative
+      .search-icon
+        position: absolute
+        width: 40px
+        height: 100%
+        background-color: #fff
+        right: 0
+        top: 0
+        line-height: 60px
+        text-align: center
+        font-size: 25px
+        cursor: pointer
+        &:hover
+          .search-tooltip
+            transform: translateX(-50%) rotateY(0deg)
+        .search-tooltip
+          position: absolute
+          bottom: calc(100% + 10px)
+          left: 50%
+          transform: translateX(-50%) rotateY(90deg)
+          background-color: #002749
+          color: #fff
+          font-weight: 600
+          font-size: 23px
+          box-shadow: 1px 1px 10px #868686
+          border-radius: 6px
+          min-width: 200px
+          transition: transform .4s ease-in-out
+          &::before
+            content: ""
+            position: absolute
+            top: 100%
+            border-width: 10px
+            border-style: solid
+            left: 50%
+            transform: translateX(-50%)
+            border-color: #002749 transparent transparent transparent
+      .search-input
+        z-index: 2
+        display: flex
+        justify-content: space-between
+        transition: transform .5s ease-in-out
+        transform: rotateX(90deg)
+        input
+          width: calc(100% - 50px)
+          padding: 15px 30px
+          outline: none
+          border: none
+          -webkit-box-shadow: 2px 2px 10px #cacaca
+          box-shadow: 2px 2px 10px #cacaca
+          border-radius: 50px
+          font-family: "Saira Condensed",sans-serif
+          font-size: 18px
+          font-weight: 600
+          &:focus
+            box-shadow: 0 0 0 2px #d4d4d4, 0 0 0 4px #007ae5, 1px 1px 5px inset #ccc
+        .close-search
+          width: 30px
+          padding: 10px
+          line-height: 50px
+          text-align: center
+          font-size: 25px
+          transition: transform .3s ease-in-out
+          cursor: pointer
+          background-color: #fff
+          border-radius: 50px
+          &:hover
+            color: #f44336
+            transform: scale(0.7)
+    .total
+      .not-found
+        display: flex
+        align-items: center
+        justify-content: space-between
+        margin: 40px 0
+        span
+          font-weight: 600
+          color: #777
+        a
+          display: block
+          padding: 8px 12px
+          border-radius: 6px
+          color: #fff
+          background-color: $todo-main-color
+          font-weight: 600
+          font-size: 20px
+          @extend .main-transition
+          &:hover
+            transform: translateX(5px)
+      .total-found
+        .number
+          margin: 20px 0
+          font-size: 40px
+          font-weight: 600
+          line-height: 1
+          span
+            font-weight: 500
+            font-size: 20px
+            color: #777
+        .the-manager
+          position: relative
+          &:not(:last-child)
+            margin-bottom: 20px
+          &:hover
+            .show-email
+              transform: rotateX(0deg)
+            .fullname
+              > i
+                color: $todo-main-color
+          .show-email
+            transition: transform .4s ease-in-out
+            position: absolute
+            bottom: calc(100% + 10px)
+            left: 0
+            box-shadow: 1px 1px 10px #ddd
+            background-color: #fff
+            border-radius: 6px
+            padding: 20px
+            display: flex
+            align-items: center
+            justify-content: space-between
+            transform: rotateX(90deg)
+            &::before
+              content: ""
+              position: absolute
+              top: 100%
+              left: 10px
+              border-style: solid
+              border-width: 7px
+              border-color: #fff transparent transparent transparent
+            > i
+              margin-right: 20px
+              font-size: 20px
+              color: $todo-main-color
+            span
+              font-weight: 600
+              font-size: 20px
+              color: #4a4a4a
+          .fullname
+            font-weight: 600
+            font-size: 25px
+            > i
+              margin-right: 20px
+              color: #777
+            a
+              float: right
+              background-color: $todo-main-color
+              padding: 7px 30px
+              font-weight: 600
+              color: #fff
+              font-size: 20px
+              border-radius: 6px
+              @extend .main-transition
+              &:hover
+                background-color: #01549d
+              i
+                color: #fff
+  .batch-assets
+    border-radius: 6px
+    box-shadow: 1px 1px 10px #ddd
+    position: relative
+    form
+      > div
+        padding: 20px
+      .the-actions.fixed-menu
+        position: sticky
+        top: 0
+        left: 0
+        border-bottom: 2px solid #007ae5
+        z-index: 4
+        background-color: #Fff
+      .the-actions
+        display: flex
+        grid-gap: 15px
+        position: relative
+        border-bottom: 1px solid #d1d1d1
+        transition: .1s ease
+        .the-total
+          position: absolute
+          top: 50%
+          transform: translateY(-50%)
+          right: 20px
+          font-size: 20px
+        .perform-action.active
+          background-color: #e9f5ff
+          i
+            color: $todo-main-color
+        .perform-action
+          width: 50px
+          height: 50px
+          border-radius: 50%
+          display: flex
+          align-items: center
+          justify-content: center
+          position: relative
+          grid-gap: 15px
+          @extend .main-transition
+          border: none
+          outline: none
+          cursor: pointer
+          font-family: "Saira Condensed",sans-serif
+          background-color: #efefef
+          &:hover
+            background-color: #e9f5ff
+            i
+              color: $todo-main-color
+            .action-tooltip
+              transform: translateX(-50%) rotateX(0deg)
+              box-shadow: 1px 1px 10px #007ae54a
+          i
+            font-size: 25px
+          .view-more
+            min-width: 320px
+          .action-tooltip
+            position: absolute
+            bottom: calc(100% + 15px)
+            left: 50%
+            transition: transform .5s ease-in-out
+            transform: translateX(-50%) rotateX(90deg)
+            background-color: $todo-main-color
+            color: #fff
+            font-weight: 600
+            font-size: 20px
+            height: 35px
+            padding: 0 20px
+            border-radius: 6px
+            text-align: center
+      .managers-list
+        position: relative
+        .no-result-found
+          text-align: center
+          span
+            font-size: 20px
+            font-weight: 500
+        > span
+          font-size: 17px
+          color: #777
+          padding-left: 20px
+          display: none
+        .line
+          position: absolute
+          width: 2px
+          height: 100%
+          background-color: #f3f3f3
+          left: 10px
+          top: 0
+        .manager-box
+          padding: 20px
+          position: relative
+          display: flex
+          justify-content: space-between
+          align-items: center
+          .row-data
+            label
+              font-size: 20px
+              font-weight: 600
+            .manager-checkbox
+              position: relative
+              -moz-appearance: none
+              -webkit-appearance: none
+              appearance: none
+              cursor: pointer
+              &::before
+                content: ""
+                width: 40px
+                height: 40px
+                border: 2px solid #4c4c4c
+                position: absolute
+                top: 50%
+                left: 50%
+                transform: translate(-50%, -50%)
+                border-radius: 4px
+              &::after
+                content: "\f00c"
+                font-family: "Font Awesome 5 Free"
+                font-weight: 900
+                position: absolute
+                top: 50%
+                left: 50%
+                transform: translate(-50%, -50%)
+                font-size: 25px
+                color: #fff
+                transition: transform .3s ease-in-out
+              &:checked
+                &::before
+                  background-color: $todo-main-color
+                  border: 2px solid #97ceff
+                &::after
+                  transform: translate(-50%, -50%) rotate(360deg)
+          &:hover
+            &::before
+              background-color: $todo-main-color
+          &::before
+            content: ""
+            position: absolute
+            width: 20px
+            height: 3px
+            background-color: #f3f3f3
+            left: -8px
+            top: 50%
+            transform: translateY(-50%)
+            @extend .main-transition
+      .view-more.fixed
+        position: sticky
+        bottom: 0
+        left: 0
+        z-index: 5
+        background-color: #fafafa
+        border-top: 2px solid #007ae5
+      .view-more
+        display: flex
+        justify-content: center
+        align-items: center
+        border-top: 1px solid #d1d1d1
+        background-color: #f9f9f9
+        border-bottom-left-radius: 6px
+        border-bottom-right-radius: 6px
+        grid-gap: 10px
+        > div, a
+          user-select: none
+          width: 50px
+          height: 50px
+          background-color: #f0f0f0
+          border-radius: 6px
+          cursor: pointer
+          span
+            i
+              @extend .main-transition
+              font-size: 25px
+        .link
+          display: flex
+          align-items: center
+          justify-content: center
+          &:hover
+            background-color: #007ae51c
+            span
+              i
+                color: #007ae5
+        .decrement
+        .limit-to
+          input
+            width: 100%
+            height: 100%
+            outline: none
+            border: none
+            text-align: center
+            line-height: 50px
+            font-size: 30px
+            padding-left: 11px
+            font-weight: 600
+            border: 1px solid #6c6c6c
+            user-select: none
+            font-family: "Saira Condensed",sans-serif
+            border-radius: 6px
+        .increment
+  .cannot-request
+    height: calc(100vh - 115px)
+    display: flex
+    align-items: center
+    justify-content: center
+    position: relative
+    .confirm-permenant-delete
+      position: absolute
+      z-index: 3
+      background-color: #eee
+      width: 100%
+      height: 100%
+      display: flex
+      align-items: center
+      justify-content: center
+      > form
+        > input
+          display: block
+          margin: 15px 0
+          padding: 10px
+          font-size: 20px
+          font-weight: 600
+          border: none
+          outline: none
+          font-family: "Saira Condensed",sans-serif
+          color: #fff
+          background-color: #f44336
+          transform: translateY(0)
+          border-radius: 6px
+          cursor: pointer
+          transition: transform .2s ease-in-out
+          &:hover
+            transform: translateY(-5px)
+    .unable-text
+      text-align: center
+      i
+        font-size: 70px
+        color: #4caf50
+      h2
+        width: fit-content
+        margin: 20px auto
+        border-bottom: 3px solid #4caf50
+        color: #3f3f3f
+      span
+        width: 500px
+        max-width: 100%
+        margin: 0 auto
+        display: block
+        font-size: 18px
+        color: #515151
+        font-weight: 600
+  .delete-account-permenant
+    .danger
+      i
+        font-size: 70px
+        color: #f44336
+      h2
+        width: fit-content
+        margin: 20px auto
+        border-bottom: 3px solid #f44336 
+        color: #3f3f3f
+      a
+        display: block
+        margin: 15px 0
+        padding: 10px
+        font-size: 20px
+        font-weight: 600
+        color: #f44336
+        background-color: #eee
+        border: 2px solid transparent
+        border-radius: 6px
+        @extend .main-transition
+        &:hover
+          background-color: #fff
+          border-color: #f44336
+  .permission-not-applicable
+    text-align: center
+    display: flex
+    align-items: center
+    justify-content: center
+    height: calc(100vh - 115px)
+    .request-text
+      i
+        font-size: 70px
+        color: #ffcc00
+      h2
+        margin: 15px auto
+        width: fit-content
+        border-bottom: 3px solid #ffcc00
+      span
+        font-size: 20px
+        max-width: 100%
+        width: 400px
+        display: block
+        margin: 0 auto
+      a
+        display: block
+        width: 160px
+        margin: 15px auto 0
+        background-color: #fff4c6
+        color: #000
+        font-size: 22px
+        border-radius: 6px
+        font-weight: 600
+        padding: 10px
+        border: 2px solid transparent
+        @extend .main-transition
+        &:hover
+          border: 2px solid #ffcc00
+  .request-successfullt-sent
+    .request-sent
+      display: flex
+      justify-content: space-between
+      align-items: center
+      padding: 10px
+      background-color: #4caf50
+      color: #fff
+      border-radius: 6px
+      box-shadow: 1px 1px 10px #797979
+      > i
+        font-size: 25px
+        margin-right: 20px
+      .text
+        flex: 1
+        span
+          font-weight: 600
+          font-size: 20px
+    .preview-exp
+      .preview-data
+        &:not(:last-child)
+          margin-bottom: 15px
+        .head
+          padding: 10px
+          display: flex
+          align-items: center
+          justify-content: space-between
+          background-color: #ebebeb
+          cursor: pointer
+          border-bottom: 2px solid transparent
+          i
+            transition: transform .3s ease-in-out
+            font-size: 25px
+        .head.toggle-info
+          border-bottom: 2px solid $todo-main-color
+          background-color: #f6f6f6
+          i
+            transform: rotate(180deg)
+        .body
+          padding: 20px
+          position: relative
+          border: 1px solid #f6f6f6
+          border-bottom: 2px solid #ebebeb
+          display: none
+          &::before
+            content: ""
+            position: absolute
+            width: 2px
+            background-color: #ebebeb
+            left: 8px
+            height: 100%
+            top: 0
+          .the-exp-data
+            padding-left: 20px
+            &:not(:last-child)
+              margin-bottom: 15px
+            h3
+              font-size: 30px
+              position: relative
+              line-height: 1
+              &::before
+                content: ""
+                position: absolute
+                top: 50%
+                margin-top: -4px
+                left: -18px
+                width: 8px
+                height: 8px
+                background-color: $todo-main-color
+                transform: rotate(45deg)
+            span
+              color: #666
+              font-size: 20px
+  .experience
+    .edit-request-sent
+      padding: 20px
+      background-color: #e6ffe7
+      border-radius: 6px
+      text-align: center
+      > i
+        font-size: 70px
+        color: #00d609
+      > h2
+        margin: 10px auto
+        width: fit-content
+        border-bottom: 4px solid #00d609
+      > span
+        display: block
+        width: 400px
+        margin: 0 auto
+        font-size: 18px
+        font-weight: 500
+    .experience-list
+      .the-experience.control-panels
+        .panel-head
+          background-color: #fff
+          border: 1px solid #bcbcbc
+          border-radius: 6px
+          box-shadow: 0 0 0 2px #fff, 0 0 0 4px #0baa11
+        .panel-body
+          display: block
+      .the-experience
+        padding: 20px 0
+        // &:not(:last-child)
+        border-bottom: 1px solid #eee
+        .panel-head
+          display: flex
+          justify-content: space-between
+          align-items: center
+          gap: 15px
+          padding: 15px 10px
+          .select-exp
+            width: 50px
+            text-align: center
+            position: relative
+            input
+              appearance: none
+              &::before
+                content: ""
+                position: absolute
+                left: 50%
+                top: 50%
+                transform: translate(-50%, -50%)
+                width: 30px
+                height: 30px
+                border-radius: 50%
+                border: 1px solid #ccc
+              &::after
+                content: "\f00c"
+                position: absolute
+                font-family: "Font Awesome 5 Free"
+                font-weight: 900
+                font-size: 28px
+                color: #0baa11
+                top: 39%
+                left: 68%
+                transform: translate(-50%, -50%) scale(0)
+                transition: transform .3s ease-in-out
+              &:checked
+                &::before
+                  border-color: #0baa11
+                  border-right: 1px solid #fff
+                &::after
+                  transform: translate(-50%, -50%) scale(1)
+          .exp-info
+            flex: 1
+            display: flex
+            align-items: center
+            gap: 15px
+            h2
+              font-size: 30px
+            .divider
+              width: 4px
+              height: 4px
+              border-radius: 50%
+              background-color: #888
+            span
+              font-size: 20px
+              font-weight: 500
+              color: #666
+        .panel-body
+          padding: 15px 10px
+          display: none
+          > form
+            > div
+              background-color: #fafafa
+              border-radius: 6px
+              padding: 15px
+              &:not(:last-child)
+                margin-bottom: 20px
+            .project-details
+              .details
+                > div
+                  &:not(:last-child)
+                    margin-bottom: 10px
+              .add-new-experience-detail
+                user-select: none
+                padding: 10px
+                background-color: $todo-main-color
+                color: #fff
+                width: fit-content
+                border-radius: 6px
+                cursor: pointer
+                display: flex
+                align-items: center
+                gap: 10px
+                font-size: 20px
+                font-weight: 600
+                transition: box-shadow .3s ease-in-out
+                &:hover
+                  background-color: #004b8e
+                  box-shadow: 0 2px 5px #727272
+            .project-info, .project-details
+              .the-input
+                .input-info
+                  position: relative
+                  .input-error
+                    position: absolute
+                    top: 50%
+                    left: -80px
+                    transform: translateY(-50%)
+                    width: 40px
+                    height: 40px
+                    border-radius: 50%
+                    display: flex
+                    align-items: center
+                    justify-content: center
+                    background-color: #ffecec
+                    transition: box-shadow .4s ease-in-out
+                    cursor: pointer
+                    z-index: 5
+                    &:hover
+                      box-shadow: 0 0 0 5px #ffecec
+                      .error-msg
+                        transform: translateX(-50%) rotateY(0deg) 
+                    .error-msg
+                      position: absolute
+                      left: 50%
+                      transform: translateX(-50%) rotateY(90deg)
+                      transition: transform .3s ease-in-out
+                      bottom: calc(100% + 12px)
+                      padding: 10px
+                      border-radius: 6px
+                      background-color: #ff2c1c
+                      color: #fff
+                      font-weight: 600
+                      font-size: 17px
+                      width: 300px
+                      text-align: center
+                      box-shadow: 0px 2px 5px #a1a1a1
+                      &::before
+                        content: ""
+                        position: absolute
+                        top: 100%
+                        left: 50%
+                        transform: translateX(-50%)
+                        border-style: solid
+                        border-width: 7px
+                        border-color: #f00 transparent transparent transparent
+                    > i
+                      color: #f00
+                      font-size: 26px
+              > h2
+                margin-bottom: 10px
+                color: $todo-main-color
+                font-size: 30px
+              > div
+                &:not(.radio-input)
+                  margin-bottom: 10px
+                  label
+                    display: block
+                    font-size: 20px
+                    font-weight: 500
+                    margin-bottom: 5px
+                    > i
+                      margin-left: 7px
+                      position: relative
+                      top: 2px
+                      color: #ff4133
+                      display: none
+                  > div
+                    position: relative
+                    input.has-value
+                      background-color: #fff
+                      border: 3px solid $todo-main-color
+                    input.error
+                      background-color: #fff
+                      border: 3px solid #f44336
+                      + span
+                        color: #f44336
+                    input
+                      padding: 30px
+                      background-color: #eee
+                      font-family: "Saira Condensed",sans-serif
+                      border: 3px solid transparent
+                      outline: none
+                      width: 100%
+                      border-radius: 6px
+                      font-size: 22px
+                      caret-color: $todo-main-color
+                      font-weight: 500
+                      &:focus
+                        border: 3px solid $todo-main-color
+                        background-color: #fff
+                        + span
+                          top: 20%
+                          font-weight: 600
+                          color: $todo-main-color
+                    span.control-placeholder
+                      top: 20%
+                      font-weight: 600
+                      color: $todo-main-color
+                    span
+                      user-select: none
+                      font-size: 20px
+                      color: #666
+                      position: absolute
+                      top: 50%
+                      left: 32px
+                      transform: translateY(-50%)
+              .radio-input
+                &:not(:last-child)
+                  margin-bottom: 10px
+                > label
+                  display: block
+                  font-size: 20px
+                  font-weight: 500
+                  margin-bottom: 5px
+                .input-info
+                  .radio-status
+                    display: flex
+                    &:not(:last-child)
+                      margin-bottom: 10px
+                    label
+                      display: block
+                      width: 50px 
+                      font-size: 20px
+                      font-weight: 600
+                      user-select: none
+                    input
+                      position: relative
+                      appearance: none
+                      cursor: pointer
+                      &:hover
+                        &::before
+                          background-color: #ddd
+                          box-shadow: 0 0 0 8px #ddd
+                      &::before
+                        content: ""
+                        position: absolute
+                        width: 30px
+                        height: 30px
+                        border-radius: 50%
+                        top: 50%
+                        transform: translateY(-50%)
+                        left: 0
+                        background-color: #eee
+                        @extend .main-transition
+                      &::after
+                        content: ""
+                        position: absolute
+                        width: 15px
+                        height: 15px
+                        border-radius: 50%
+                        top: 50%
+                        transform: translateY(-50%)
+                        left: calc((30px - 15px) / (2))
+                        background-color: #fff
+                      &:checked
+                        &:hover
+                          &::before
+                            box-shadow: 0 0 0 0 transparent
+                        &::before
+                          background-color: #d3eaff
+                        &::after
+                          background-color: $todo-main-color
+            .errors
+              background-color: #f44336
+              font-size: 20px
+              font-weight: 600
+              color: #fff
+            .submit-info
+              input.disabled
+                background-color: #93cdff
+                pointer-events: none
+              input
+                width: 100%
+                padding: 10px
+                font-size: 20px
+                margin-bottom: 10px
+                background-color: $todo-main-color
+                color: #fff
+                font-weight: 600
+                border-radius: 6px
+                border: none
+                outline: none
+                font-family: "Saira Condensed",sans-serif
+                cursor: pointer
+                @extend .main-transition
+                &:hover
+                  background-color: #05569c
+              a
+                display: block
+                width: 100%
+                padding: 10px
+                font-size: 20px
+                background-color: #ddd
+                color: #000000
+                font-weight: 600
+                text-align: center
+                border-radius: 6px
+                @extend .main-transition
+                &:hover
+                  background-color: #ccc
+    .form-title
+      > strong
+        color: $todo-main-color
+    .total-exceeded.error-icon
+      i
+        color: #f44336
+      a
+        &:hover
+          border: 2px solid #f44336 
+    .get-request-invalid, .total-exceeded
+      text-align: center
+      margin: 30px 0
+      i
+        font-size: 70px
+        color: #fc0
+      h2
+        margin: 15px 0
+      a
+        display: block
+        width: 120px
+        margin: 0 auto
+        padding: 10px
+        font-size: 20px
+        font-weight: 600
+        border: 2px solid #ddd
+        border-radius: 6px
+        @extend .main-transition
+        &:hover
+          border: 2px solid #fc0
+    .details-experience
+      .not-valid
+        padding: 10px
+        background-color: #f44336
+        color: #fff
+        font-weight: 600
+        font-size: 18px
+        border-radius: 6px
+      .add-new-details
+        user-select: none
+        margin: 30px 0
+        width: 150px
+        padding: 10px
+        font-size: 22px
+        color: #000
+        display: flex
+        align-items: center
+        justify-content: space-between
+        border: 2px solid #ececec
+        font-weight: 600
+        border-radius: 6px
+        cursor: pointer
+        @extend .main-transition
+        &:hover
+          border: 2px solid $todo-main-color
+          color: $todo-main-color
+          background-color: #007ae51a
+        span
+          flex: 1
+          text-align: center
+        i
+          margin-right: 10px
+          font-size: 25px
+      form
+        position: relative
+        &::before
+          content: ""
+          position: absolute
+          top: 0
+          left: 0
+          width: 2px
+          height: 100%
+          background-color: #ccc
+        .submit
+          padding: 15px
+          input
+            display: block
+            margin-bottom: 10px
+            border-radius: 6px
+            border: none
+            outline: none
+            background-color: $todo-main-color
+            padding: 10px
+            width: 100%
+            color: #fff
+            font-family: "Saira Condensed",sans-serif
+            font-size: 20px
+            font-weight: 600
+            cursor: pointer
+            @extend .main-transition
+            &:hover
+              background-color: #005096
+          a
+            display: block
+            width: 100%
+            text-align: center
+            border-radius: 6px
+            background-color: #ddd
+            padding: 10px
+            font-size: 20px
+            font-weight: 600
+            @extend .main-transition
+            &:hover
+              background-color: #aaa
+        .details-input
+          display: flex
+          justify-content: flex-end
+          &:not(:last-child)
+            margin-bottom: 15px
+          &:hover
+            .the-input
+              &::before
+                background-color: $todo-main-color
+          .the-input.has-error
+            input
+              border: 2px solid #f44336
+            &::after
+              background-color: #f44336
+            &::before
+              background-color: #f44336
+          .the-input
+            width: calc(100% - 100px)
+            position: relative
+            span
+              position: absolute
+              top: 50%
+              left: 15px
+              transform: translateY(-50%)
+              color: #777
+              font-size: 20px
+              user-select: none
+            span.control
+              top: 20%
+              font-weight: 600
+              color: $todo-main-color
+            &::before
+              content: ""
+              position: absolute
+              top: 50%
+              left: -98px
+              transform: translateY(-50%)
+              width: 30px
+              height: 3px
+              background-color: #ccc
+            &::after
+              content: attr(data-key)
+              position: absolute
+              top: 50%
+              transform: translateY(-50%)
+              width: 45px
+              height: 45px
+              background-color: $todo-main-color
+              border-radius: 50%
+              left: -68px
+              display: flex
+              align-items: center
+              justify-content: center
+              font-size: 30px
+              font-weight: 600
+              color: #fff
+            input.has-value
+              border: 2px solid $todo-main-color
+            input
+              width: 100%
+              padding: 30px 15px
+              border-radius: 6px
+              border: 2px solid #ddd
+              outline: none
+              font-size: 20px
+              font-weight: 600
+              font-family: "Saira Condensed",sans-serif
+              &:focus
+                border: 2px solid $todo-main-color
+                + span
+                  top: 20%
+                  font-weight: 600
+                  color: $todo-main-color
+    .add-experience
+      form
+        .error
+          margin-bottom: 15px
+          color: #f44336
+          font-weight: 600
+          font-size: 20px
+        .submit
+          .submit-btn.disabled
+            background-color: #007ae554
+            pointer-events: none
+          > input
+            padding: 10px
+            font-size: 22px
+            font-weight: 600
+            color: #fff
+            background-color: $todo-main-color
+            border-radius: 6px
+            width: 100%
+            border: none
+            outline: none
+            cursor: pointer
+            font-family: "Saira Condensed",sans-serif
+            @extend .main-transition
+            &:hover
+              background-color: #00529b
+          a
+            display: block
+            margin-top: 10px
+            padding: 10px
+            font-size: 22px
+            font-weight: 600
+            color: #000
+            background-color: #ddd
+            border-radius: 6px
+            width: 100%
+            text-align: center
+            @extend .main-transition
+            &:hover
+              background-color: #c0c0c0
+        .radio-input
+          margin-bottom: 15px
+          h3
+            margin-bottom: 10px
+          > div
+            position: relative
+            &:not(:last-child)
+              margin-bottom: 15px
+            label
+              font-size: 22px
+            input
+              appearance: none
+              cursor: pointer
+              &::before
+                content: ""
+                width: 30px
+                height: 30px
+                border-radius: 50%
+                position: absolute
+                left: 45px
+                top: 50%
+                transform: translateY(-50%)
+                background-color: #e0e0e0
+              &::after
+                content: ""
+                position: absolute
+                width: 15px
+                height: 15px
+                border-radius: 50%
+                top: 50%
+                transform: translateY(-50%)
+                left: calc(45px + (15px / 2))
+                background-color: #fff
+              &:checked
+                &::before
+                  background-color: #d4ebff
+                &::after
+                  background-color: $todo-main-color
+        .exp-input
+          &:not(.radio-input, .submit)
+            position: relative
+            > input.has-value
+              border: 2px solid $todo-main-color
+            > input.has-error
+              border: 2px solid #f44336
+              + span
+                color: #f44336
+            > input
+              padding: 30px 15px
+              width: 100%
+              border: 2px solid #ddd
+              border-radius: 6px
+              outline: none
+              font-size: 20px
+              font-family: "Saira Condensed",sans-serif
+              &:focus
+                border: 2px solid $todo-main-color
+                + span
+                  top: 20%
+                  font-weight: 600
+                  color: $todo-main-color
+            span
+              position: absolute
+              top: 50%
+              left: 15px
+              transform: translateY(-50%)
+              font-size: 20px
+              color: #777
+            span.control
+              top: 20%
+              font-weight: 600
+              color: $todo-main-color
+    .manage-exp.cannot-add-new-exp
+      grid-template-columns: repeat(auto-fill, minmax(450px, 1fr))
+    .manage-exp
+      display: grid
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr))
+      grid-gap: 20px
+      .add-link
+        &:hover
+          h2
+            border-bottom: 3px solid $todo-main-color
+      .edit-link
+        &:hover
+          h2
+            border-bottom: 3px solid #e91e63
+      .delete-link
+        &:hover
+          h2
+            border-bottom: 3px solid #f44336
+      > a
+        padding: 30px 10px
+        border: 1px solid #666
+        border-radius: 6px
+        text-align: center
+        transition: box-shadow .2s ease-in-out
+        /* &:hover
+          box-shadow: 2px 2px 10px #dedede
+          border: 1px solid #ddd */
+        .add
+          color: $todo-main-color
+        .edit
+          color: #e91e63
+        .delete
+          color: #f44336
+        i
+          font-size: 50px
+        h2
+          margin: 15px auto
+          width: fit-content
+          border-bottom: 3px solid transparent
+        span
+          font-size: 17px
+          font-weight: 500
+  .change-name, .experience
+    .na
+      .permisiion-icon
+        i
+          color: #607d8b
+          font-size: 22px
+          margin-right: 20px
+    .ro
+      .permisiion-icon
+        i
+          color: #00bcd4
+          font-size: 22px
+          margin-right: 20px
+    .rw
+      .permisiion-icon
+        i
+          color: #ff9800
+          font-size: 22px
+          margin-right: 20px
+    .permissions
+      .permisiion-text
+        flex: 1
+        display: flex
+        justify-content: space-between
+        align-items: center
+        > span
+          font-size: 20px
+          font-weight: 500
+        > form
+          > input
+            padding: 10px
+            border: none
+            outline: none
+            background-color: $todo-main-color
+            cursor: pointer
+            color: #fff
+            font-size: 20px
+            border-radius: 8px
+            font-weight: 500
+            font-family: "Saira Condensed",sans-serif
+            &:hover
+              background-color: #005eb1
+    .notice, .permissions
+      margin: 15px 0
+      padding: 20px 10px
+      border: 1px solid #eee
+      border-radius: 6px
+      box-shadow: 1px 1px 10px #ddd
+      display: flex
+      align-items: center
+      justify-content: space-between
+      &:hover
+        box-shadow: 1px 1px 18px #d2d2d2
+      .icon
+        width: 100px
+        margin-right: 20px
+        text-align: center
+        > i
+          font-size: 70px
+          color: #000
+      .notice-icon
+        i
+          color: #009688
+          font-size: 50px
+      .text
+        flex: 1
+        > h3
+          color: #f44336
+        > h4
+          padding: 10px
+          border-radius: 6px
+          color: #424242
+          font-size: 19px
+          margin: 10px 0 0
+          box-shadow: 1px 1px 10px #d6d6d6
+          border-left: 4px solid $todo-main-color
+          a
+            color: $todo-main-color
+            &:hover
+              text-decoration: underline
+    .privacy
+      margin: 15px 0
+      .privacy-text
+        padding: 10px 0
+        &:not(:last-child)
+          border-bottom: 1px solid #d0d0d0
+          margin-bottom: 10px
+        h2
+          text-transform: uppercase
+          font-size: 30px
+          font-weight: 600
+          letter-spacing: 1px
+          display: flex
+          align-items: center
+          > i
+            font-size: 20px
+            margin-right: 10px
+            color: #4caf50
+        > span
+          font-size: 20px
+          display: block
+          .highlight
+            &:first-child
+              margin-left: 0
+          &:not(:last-child)
+            margin-bottom: 10px
+        .highlight
+          border-radius: 6px
+          padding: 2px 10px
+          margin: 0 4px
+          text-transform: capitalize
+          font-weight: 600
+          white-space: nowrap
+        .highlight.default
+          background-color: #f1f1f1
+        .highlight.primary
+          background-color: $todo-main-color
+          color: #fff
+        .highlight.secondary
+          background-color: #fff
+          margin: 0 1px
+          padding: 2px 0
+        .decor
+          text-transform: capitalize
+          font-weight:  600
+          white-space: nowrap
+        .decor.underline
+          text-decoration: underline
+        .decor.expired
+          text-decoration: line-through        
+    .form-title
+      font-size: 30px
+      border-bottom: 1px solid #eee
+      margin: 15px 0
+    .my-shortcuts-sh
+      display: grid
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr))
+      grid-gap: 15px
+      .the-sh
+        padding: 20px
+        box-shadow: 1px 1px 10px #ddd
+        border-radius: 6px
+        display: flex
+        justify-content: space-between
+        align-items: center
+        font-size: 20px
+        grid-gap: 15px
+        border: 1px solid transparent
+        transition: box-shadow .5s ease-in-out
+        &:hover
+          background-color: #efefef
+          box-shadow: 0 2px 3px #b3b3b3
+          border: 1px solid #aaa
+        > i
+          color: #ffeb3b
+        .name
+          flex: 1
+          span
+            display: block
+            width: fit-content
+            border-bottom: 3px solid #009688
+            font-weight: 600
+        .manage
+          color: #009688
+          transition: transform .3s ease-in-out
+          &:hover
+            transform: scale(1.3)
+    .no-shortcut-found
+      margin: 15px 0
+      text-align: center
+      > i
+        font-size: 70px
+        color: #c5c5c5
+      h2
+        margin: 15px 0
+      a
+        display: block
+        width: fit-content
+        margin: 0 auto
+        padding: 10px
+        font-size: 20px
+        font-weight: 600
+        color: $todo-main-color
+        background-color: #eee
+        border: 2px solid transparent
+        border-radius: 6px
+        transition: .3s ease-in-out
+        &:hover
+          border-color: $todo-main-color
+    .name-error
+      margin: 15px 0
+      background-color: #f44336
+      padding: 10px
+      display: flex
+      align-items: center
+      justify-content: space-between
+      border-radius: 6px
+      .icon
+        margin-right: 20px
+        i
+          font-size: 25px
+          color: #fff
+      .text
+        flex: 1
+        padding-left: 20px
+        border-left: 1px solid #eee
+        span
+          font-size: 18px
+          color: #fff
+          font-weight: 500
+    form
+      .input
+        &:not(:last-child)
+          margin-bottom: 10px
+        label
+          display: block
+          margin-bottom: 2px
+          font-size: 25px
+        input
+          min-width: 400px
+          padding: 15px
+          box-shadow: 1px 1px 6px #d5d5d5 inset
+          border: 1px solid #afafaf
+          outline: none
+          font-family: "Saira Condensed",sans-serif
+          font-size: 18px
+          font-weight: 500
+          &:focus
+            border: 1px solid #007ae5
+            box-shadow: 1px 1px 6px #c5e4ff inset
+        input[type="submit"], .cancel
+          display: block
+          width: 100%
+          font-family: "Saira Condensed",sans-serif
+          font-size: 20px
+          cursor: pointer
+          border: none
+          box-shadow: none
+          font-weight: 600
+        input[type="submit"]
+          background-color: $todo-main-color
+          color: #fff
+          margin-top: 15px
+        .cancel
+          background-color: #ededed
+          color: #000
+          text-align: center
+          padding: 10px
+          margin-top: 10px
+          border: 1px solid #aaa
+      .show-password
+        margin: 10px 0
+        label
+          user-select: none
+          font-size: 20px
+          margin-right: 10px
+      .name-changes-disabled
+        text-align: center
+        border: 1px solid #c7c7c7
+        padding: 20px 0
+        margin: 20px 0
+        border-radius: 6px
+        background-color: #f1f1f1
+        > i
+          font-size: 70px
+          margin-bottom: 20px
+          color: $todo-main-color
+        .restriction-text
+          width: 100%
+          max-width: 400px
+          margin: 0 auto
+          span
+            font-size: 18px
+            font-weight: 500
+          .remained-time
+            display: block
+            margin: 10px 0
+            color: #777
+            font-size: 20px
+            font-weight: 600
+  .aliases
+    > div
+      &:not(:last-child)
+        margin-bottom: 15px
+      .head
+        display: flex
+        justify-content: space-between
+        align-items: center
+        padding: 20px
+        border-bottom: 2px solid #fafafa
+        cursor: pointer
+        h2
+        i
+          font-size: 25px
+          cursor: pointer
+          transition: transform .3s ease-in-out
+      .head.show-info
+        background-color: #d0e9ff
+        h2
+          color: $todo-main-color 
+        i
+          transform: rotate(180deg)
+          color: $todo-main-color
+      .alias-action
+        background-color: #fafafa
+        padding: 20px
+        border-bottom-left-radius: 30px
+        border-bottom-right-radius: 30px
+        display: none
+        .msg
+          margin-bottom: 10px
+          display: none
+          span
+            font-size: 18px
+            margin-left: 5px
+        .msg.success
+          i
+            color: #4caf50
+        .msg.error
+          i
+            color: #f44336
+        form
+          .form-inputs
+            display: flex
+            justify-content: space-between
+            gap: 15px
+            > div
+              width: 30%
+              label
+                font-size: 20px
+                font-weight: 600
+                margin-bottom: 5px
+                display: block
+              input
+                width: 100%
+                caret-color: $todo-main-color
+                padding: 10px 20px
+                font-size: 20px
+                border-radius: 30px
+                border: 1px solid #ccc
+                outline: none
+                font-family: "Saira Condensed",sans-serif
+                &:focus
+                  border: 1px solid $todo-main-color
+                  box-shadow: 1px 1px 5px #aaa inset
+          .submit-form
+            margin: 0 auto
+            max-width: 200px
+            > input
+              font-family: "Saira Condensed",sans-serif
+              width: 100%
+              padding: 10px
+              font-size: 20px
+              font-weight: 600
+              margin-top: 20px
+              border: none
+              border-radius: 6px
+              background-color: $todo-main-color
+              color: #fff
+              cursor: pointer
+              &:hover
+                box-shadow: 1px 1px 5px #676767
+    .add-alias
+    .edit-alias, .remove-alias
+      .alias-action
+        form
+          display: none
+        .select-shortcut
+          margin-bottom: 10px
+          span
+            color: #777
+            font-size: 20px
+          select
+            width: 100%
+            padding: 10px
+            border: 2px solid $todo-main-color
+            outline: none
+            font-size: 20px
+            font-family: "Saira Condensed",sans-serif
+            font-weight: 600
+            border-radius: 30px
+    .remove-alias
+      .alias-action
+        form
+          .submit-form
+            > input
+              background-color: #f44336
+  .sh-for-you
+    .form-title
+      font-size: 30px
+      border-bottom: 1px solid #eee
+      margin: 15px 0
+    .total-sh
+      margin: 35px 0
+      font-size: 20px
+      color: #303030
+      display: flex
+      align-items: center
+      justify-content: space-between
+      .my-sh
+        font-size: 16px
+        display: flex
+        align-items: center
+        grid-gap: 10px
+        .divider
+          width: 5px
+          height: 5px
+          background-color: #6d6d6d
+          border-radius: 50%
+      .indicates
+        font-size: 15px
+        display: flex
+        align-items: center
+        grid-gap: 10px
+        span
+          &:last-child
+            display: block
+            width: 30px
+            height: 30px
+            border-radius: 4px
+            background-color: $todo-main-color
+    .sh
+      display: grid
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr))
+      grid-gap: 30px
+      .the-shortcut.already-added
+        background-color: $todo-main-color
+        .sh-info
+          > i
+            color: #fff
+          h3, span
+            color: #fff
+        .add
+          background-color: #fff
+      .the-shortcut
+        box-shadow: 1px 1px 10px #ddd
+        border-radius: 6px
+        text-align: center
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+        transition: box-shadow .3s ease-in-out
+        border-radius: 6px
+        > div
+          padding: 20px
+        &:hover
+          box-shadow: 1px 1px 10px #a8a8a8
+        .sh-info
+          > i
+            display: block
+            margin: 10px 0
+            font-size: 70px
+            color: #a2a2a2
+            @extend .main-transition
+          h3
+            font-size: 25px
+          span
+            font-size: 18px
+            color: #777
+        .add
+          background-color: #f8f8f8 
+          form
+            .remove-sh
+              font-family: "Saira Condensed",sans-serif
+              width: 120px
+              background-color: #ffe3e1
+              color: #f44336
+              font-weight: 600
+              &:hover
+                background-color: #f44336
+                color: #fff
+                box-shadow: 0 3px 5px #949494
+            button
+              width: 80px
+              padding: 10px 0
+              border: none
+              outline: none
+              background-color: #e0f1ff
+              font-size: 25px
+              cursor: pointer
+              color: #0463b6
+              border-radius: 6px
+              height: 59px
+              @extend .main-transition
+              &:hover
+                background-color: $todo-main-color
+                color: #fff
+                box-shadow: 0 3px 5px #949494
+  .no-experience-to-show
+    text-align: center
+    background-color: #fafafa
+    border-radius: 6px
+    box-shadow: 1px 1px 10px #c5c5c5
+    padding: 20px
+    > i
+      font-size: 70px
+      margin: 0 0 10px
+      color: #818181
+    h2
+      margin: 0 auto 20px
+      width: fit-content
+      border-bottom: 4px solid #f00
+    span
+      display: block
+      margin: 20px auto
+      max-width: 400px
+      width: 100%
+      font-size: 18px
+      font-weight: 500
+    a
+      display: block
+      margin: 0 auto
+      width: 170px
+      padding: 10px
+      text-align: center
+      background-color: $todo-main-color
+      color: #fff
+      font-size: 20px
+      font-weight: 600
+      border-radius: 6px
+      transition: box-shadow .3s ease-in-out
+      &:hover
+        background-color: #004b8e
+        box-shadow: 0 2px 5px #727272
+  .delete-my-exp
+    .filter-my-exp
+      padding: 20px
+      background-color: #fafafa
+      border-radius: 6px
+      display: flex
+      align-items: center
+      justify-content: space-between
+      gap: 20px
+      > div
+        cursor: pointer
+        position: relative
+      .filter
+        border: 1px solid #ddd
+        background-color: #fff
+        color: $todo-main-color
+        display: flex
+        align-items: center
+        justify-content: center
+        width: 50px
+        height: 50px
+        border-radius: 6px
+        @extend .main-transition
+        &:hover
+          background-color: #daeeff
+          .filter-options
+            display: block
+        i
+          font-size: 20px
+        .filter-options
+          display: none
+          position: absolute
+          left: 0
+          top: calc(100% - 3px)
+          background-color: #fff
+          border: 1px solid #aaa
+          box-shadow: 1px 1px 10px #ddd
+          border-radius: 6px
+          width: 250px
+          z-index: 3
+          padding: 10px 0
+          h4
+            color: #666
+            padding: 10px
+          .filter-item
+            padding: 10px
+            display: flex
+            align-items: center
+            justify-content: space-between
+            position: relative
+            @extend .main-transition
+            border-left: 3px solid transparent
+            &:hover
+              background-color: #d6ecff
+              border-left: 3px solid $todo-main-color
+              .search-list-for-term
+                display: block
+              i
+                color: $todo-main-color !important
+                transform: scale(1.1)
+            .search-list-for-term
+              display: none
+              position: absolute
+              left: 100%
+              top: 0
+              width: 250px
+              padding: 10px
+              box-shadow: 1px 1px 10px #aaa
+              > input
+                padding: 10px
+                border: 2px solid #ddd
+                background-color: #f5f5f5
+                outline: none
+                font-size: 18px
+                font-family: "Saira Condensed",sans-serif
+                font-weight: 600
+                border-radius: 6px
+                width: 100%
+                &:focus
+                  border: 2px solid $todo-main-color
+                  background-color: #fff
+            span  
+              font-size: 20px
+              font-weight: 600
+              color: #000
+            .icon
+              i
+                transition: transform .3s ease-in-out
+                font-size: 20px
+                color: #666
+      .sort-list-by
+        flex: 1
+        .sort-list
+          position: relative
+          width: fit-content
+          padding: 10px
+          border: 1px solid #ddd
+          background-color: #fff
+          color: $todo-main-color
+          font-weight: 600
+          font-size: 20px
+          border-radius: 6px
+          cursor: pointer
+          @extend .main-transition
+          &:hover
+            background-color: #daeeff
+            .sort-methods
+              display: block
+          .sort-methods
+            display: none
+            position: absolute
+            left: 0
+            top: calc(100% - 3px)
+            background-color: #fff
+            border: 1px solid #aaa
+            box-shadow: 1px 1px 10px #ddd
+            border-radius: 6px
+            width: 250px
+            min-height: 100px
+            z-index: 3
+            padding: 10px 0
+            .sort-item
+              display: flex
+              align-items: center
+              justify-content: space-between
+              gap: 15px
+              padding: 10px
+              border-left: 3px solid transparent
+              &:hover
+                border-left: 3px solid $todo-main-color
+                background-color: #d6ecff
+                i
+                  color: $todo-main-color
+              i
+                font-size: 20px
+              .text
+                flex: 1
+                span
+                  font-size: 20px
+                  font-weight: 600
+    .my-exp-list
+      min-height: 500px
+.edit-custom-user.show-for-edit
+  transform: scale(1)
+.edit-custom-user
+  transform: scale(0)
+  width: 100%
+  height: 100%
+  position: fixed
+  top: 0
+  left: 0
+  z-index: 5
+  background-color: #fff
+  overflow-y: scroll
+  transition: transform .5s ease-in-out 
+  .container
+    > div
+      padding: 15px
+  .head
+    border-bottom: 1px solid #ddd
+    display: flex
+    align-items: center
+    justify-content: space-between
+    h2
+      strong
+        color: $todo-main-color
+    .close
+      width: 45px
+      height: 45px
+      border-radius: 50%
+      text-align: center
+      line-height: 55px
+      cursor: pointer
+      &:hover
+        background-color: #f1f3f4
+      i
+        font-size: 25px
+  .body
+    form
+      .submit
+        margin-top: 20px
+        display: flex
+        justify-content: flex-end
+        > input.disabled
+          pointer-events: none
+          background-color: #007ae578
+        > input
+          padding: 10px 20px
+          outline: none
+          border: 1px solid transparent
+          font-family: "Saira Condensed",sans-serif
+          background-color: $todo-main-color
+          font-size: 20px
+          font-weight: 600
+          color: #fff
+          border-radius: 6px
+          cursor: pointer
+          transition: transform .1s ease-in-out, box-shadow .3s .2s ease-in-out
+          &:hover
+            transform: translateX(-5px)
+            box-shadow: 0 3px 5px 2px #75bfff
+            border: 1px solid #0072d7
+      .edit-input
+        &:not(:last-child)
+          margin-bottom: 10px
+        .input-label
+          margin-bottom: 5px
+          display: flex
+          justify-content: space-between
+          align-items: center
+          label
+            display: block
+            font-size: 22px
+            font-weight: 600
+          .input-error
+            position: relative
+            display: none
+            &:hover
+              .the-error
+                transform: translateY(-50%) scale(1)
+            .the-error
+              position: absolute
+              min-width: 300px
+              background-color: #f44336
+              font-weight: 600
+              color: #fff
+              text-align: center
+              font-size: 18px
+              padding: 4px 10px
+              border-radius: 6px
+              right: 0
+              top: 50%
+              transform: translateY(-50%) scale(0)
+              transition: transform .3s ease-in-out
+            i
+              font-size: 25px
+              color: #f44336
+              cursor: pointer
+              @extend .main-transition
+              &:hover
+                color: #f00
+        .input
+          position: relative
+          select
+            width: 100%
+            padding: 30px
+            border-radius: 6px
+            background-color: #f1f3f4
+            border: none
+            outline: none
+            font-size: 18px
+            font-weight: 600
+            font-family: "Saira Condensed",sans-serif
+          .radio-btn
+            display: flex
+            align-items: center
+            position: relative
+            &:not(:last-child)
+              margin-bottom: 20px
+            label
+              font-weight: 500
+              font-size: 18px
+              width: 150px
+            input[type="radio"]
+              -moz-appearance: none
+              appearance: none
+              cursor: pointer
+              transition: box-shadow .3s ease-in-out
+              &:hover
+                &::before
+                  box-shadow: 0 0 0 15px #e5e5e5
+              &::before
+                content: ""
+                width: 25px
+                height: 25px
+                position: absolute
+                top: 50%
+                transform: translateY(-50%)
+                left: 165px
+                border: 1px solid #5f5f5f
+                border-radius: 50%
+            .check
+              transition: box-shadow .3s ease-in-out
+              &:checked
+                &::before
+                  border: 1px solid $todo-main-color
+                  box-shadow: 0 0 0 5px #c7e7ff
+                  &:hover
+                    box-shadow: 0 0 0 15px #c7e7ff
+                &::after
+                  opacity: 1
+              &::after
+                content: "\f00c"
+                font-family: "Font Awesome 5 Free"
+                font-weight: 900
+                color: $todo-main-color
+                font-size: 18px
+                position: absolute
+                top: 50%
+                transform: translateY(-50%)
+                left: 170px
+                opacity: 0
+                transition: opacity .4s ease-in-out
+            .times
+              &:checked
+                &::before
+                  border: 1px solid #f44336
+                  box-shadow: 0 0 0 5px #ffccc8
+                  &:hover
+                    box-shadow: 0 0 0 15px #ffccc8
+                &::after
+                  opacity: 1
+              &::after
+                content: "\f00d"
+                font-family: "Font Awesome 5 Free"
+                font-weight: 900
+                font-size: 18px
+                color: #f44336
+                position: absolute
+                top: 50%
+                transform: translateY(-50%)
+                left: 173px
+                opacity: 0
+                transition: opacity .4s ease-in-out
+          .old-data.above-input
+            top: 20%
+            font-size: 16px
+            color: $todo-main-color
+            left: 30px
+          .old-data
+            position: absolute
+            left: 30px
+            top: 50%
+            transform: translateY(-50%)
+            color: #676767
+            font-weight: 600
+            font-size: 20px
+          .animate-on-focus
+            transition: .6s ease-in-out
+            position: absolute
+            width: 0
+            height: 3px
+            background-color: $todo-main-color
+            top: 100%
+            left: 50%
+            transform: translateX(-50%)
+          .show-hide
+            position: absolute
+            top: 50%
+            right: 20px
+            transform: translateY(-50%)
+            font-size: 22px
+            cursor: pointer
+          > input
+            width: 100%
+            background-color: #f1f3f4
+            padding: 30px
+            border-top-left-radius: 6px
+            border-top-right-radius: 6px
+            border: none
+            outline: none
+            font-size: 20px
+            font-weight: 600
+            font-family: "Saira Condensed",sans-serif
+            &::placeholder
+              color: transparent
+              font-family: "Saira Condensed",sans-serif
+            &:focus
+              background-color: #f8f8f8
+              &::placeholder
+                color: #777
+              + div
+                width: 100%
+.advanced-search
+  position: fixed
+  width: 100%
+  height: 100%
+  background-color: #fff
+  z-index: 2
+  overflow-y: scroll
+  top: 0
+  left: 0
+  > div
+    padding: 15px
+    border-bottom: 1px solid #ddd
+  .upper-search
+    position: relative
+    .search-icon
+      position: absolute
+      top: 50%
+      left: 20px
+      transform: translateY(-50%)
+      font-size: 25px
+    .clear-search
+      position: absolute
+      top: 50%
+      right: 20px
+      transform: translateY(-50%)
+      font-size: 25px
+      cursor: pointer
+    .relevant-search
+      position: absolute
+      width: 100%
+      top: calc(100% + 10px)
+      border-radius: 6px
+      background-color: #fff
+      box-shadow: 1px 1px 10px #ddd
+      overflow: hidden
+      display: none
+      .manager-action
+        .manager-holder
+          padding: 20px 30px
+          display: flex
+          justify-content: space-between
+          align-items: center
+          &:hover
+            background-color: #ececec
+            .the-action
+              transform: translateX(0)
+          .name
+            display: flex
+            align-items: center
+            i
+              margin-right: 20px
+              font-size: 25px
+            span
+              font-weight: 500
+              font-size: 18px
+          .the-action
+            display: flex
+            grid-gap: 15px
+            transform: translateX(200px)
+            transition: transform .5s ease-in-out
+            .edit
+              &:hover
+                color: #4caf50
+            .del
+              &:hover
+                color: #f44336
+            a
+              @extend .main-transition
+              i
+                font-size: 22px
+    input
+      width: 100%
+      padding: 15px 60px
+      border-radius: 50px
+      font-family: "Saira Condensed",sans-serif
+      border: 2px solid #183153
+      outline: none
+      box-shadow: 1px 2px 10px #18315336
+      font-size: 20px
+      font-weight: 600
+      &:focus
+        box-shadow: 0 0 0 2px #fff, 0 0 0 4px #63a5ff
+.confirm-delete
+  position: fixed
+  top: 0
+  left: 0
+  background-color: #fff
+  z-index: 3
+  width: 100%
+  height: 100%
+  .close-confirmal
+    position: absolute
+    top: 20px
+    right: 20px
+    width: 50px
+    height: 50px
+    border-radius: 50%
+    display: flex
+    align-items: center
+    justify-content: center
+    i
+      font-size: 40px
+      &:hover
+        color: #f00
+  .the-form
+    position: absolute
+    width: 400px
+    transform: translateY(-50%)
+    margin-left: -200px
+    left: 50%
+    top: 50%
+    box-shadow: 1px 1px 10px #ddd
+    border-radius: 6px
+    padding: 60px 20px 20px
+    text-align: center
+    h3
+      font-size: 30px
+    span
+      margin: 20px 0
+      display: block
+    form
+      > input
+        padding: 10px
+        width: 100%
+        border-radius: 6px
+        color: #fff
+        font-weight: 600
+        font-size: 20px
+        border: none
+        outline: none
+        font-family: "Saira Condensed",sans-serif
+        background-color: #f44336
+        cursor: pointer
+        transition: transform .3s ease-in-out, font-size .2s .3s ease-in-out
+        &:hover
+          transform: scale(0.9)
+          font-size: 26px
+    .deleting-icon
+      position: absolute
+      width: 100px
+      height: 100px
+      border-radius: 50%
+      left: 50%
+      transform: translateX(-50%)
+      top: -50px
+      background-color: #f44336
+      display: flex
+      align-items: center
+      justify-content: center
+      i
+        font-size: 40px
+        color: #fff
+  .not-found-any
+    position: absolute
+    transform: translate(-50%, -50%)
+    left: 50%
+    top: 50%
+    text-align: center
+    h2
+      font-size: 80px
+      color: #444
+      animation: scale 2s backwards infinite
+    span
+      font-size: 20px
+      font-weight: 600
+.view-managers-info
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  background-color: #fff
+  z-index: 3
+  .info-box
+    position: relative
+    height: 100%
+    .arrow.disabled
+      color: #c4c4c4
+      background-color: #fff
+      pointer-events: none
+    .arrow
+      position: absolute
+      top: 50%
+      transform: translateY(-50%)
+      width: 60px
+      height: 60px
+      display: flex
+      align-items: center
+      justify-content: center
+      font-size: 40px
+      cursor: pointer
+      color: #000
+      border-radius: 50%
+      transition: transform .3s ease-in-out
+    .arrow-prev
+      left: 0
+      &:hover
+        transform: translate(-5px, -50%)
+    .arrow-next
+      right: 0
+      &:hover
+        transform: translate(5px, -50%)
+    .info-holder.active-card
+      z-index: 2
+    .info-holder
+      position: absolute
+      top: 50%
+      left: 50%
+      transform: translate(-50%, -50%)
+      display: flex
+      justify-content: space-between
+      align-items: center
+      grid-gap: 50px
+      width: calc(100% - 140px)
+      background-color: #fff
+      .manager-card
+        flex: 1
+        width: 100%
+        background-color: #fff
+        min-height: 300px
+        position: relative
+        border-radius: 6px
+        border: 1px solid #dadada
+        .head
+          padding: 15px
+          border-bottom: 1px solid #ccc
+          .head-holder
+            position: relative
+            display: flex
+            justify-content: space-between
+            align-items: center
+            .card-name
+              flex: 1
+              background-color: #fff
+              font-size: 23px
+              color: $todo-main-color
+              font-weight: 700
+            .copy-token
+              position: relative
+              .what-to-copy
+                position: absolute
+                left: 50%
+                transform: translateX(-50%) rotateX(90deg)
+                top: calc(100% + 10px)
+                background-color: #333
+                color: #fff
+                padding: 4px 10px
+                border-radius: 6px
+                min-width: 250px
+                text-align: center
+                transition: transform .4s ease-in-out
+                z-index: 4
+                &::before
+                  content: ""
+                  position: absolute
+                  top: -13px
+                  left: 50%
+                  transform: translateX(-50%)
+                  border-style: solid
+                  border-width: 7px
+                  border-color: transparent transparent #333 transparent
+              > i
+                font-size: 25px
+                color: #009688
+                cursor: pointer
+                &:hover
+                  + div
+                    transform: translateX(-50%) rotateX(0deg)
+        .body
+          padding: 15px
+          display: flex
+          // justify-content: space-between
+          grid-gap: 15px
+          flex-wrap: wrap
+          .pass
+            i
+              color: #9c27b0
+          .email
+            i
+              color: #e91e63
+          .approved
+            i
+              color: #4caf50
+          .notapproved
+            i
+              color: #f44336
+          .need-approval
+            i
+              color: #607d8b
+          .read
+            i
+              color: #00bcd4
+          .read-write
+            i
+              color: #ff9800
+          .callendar
+            i
+              color: #3f51b5
+          > div
+            width: calc(96% / 3)
+            box-shadow: 1px 1px 10px #ddd
+            border-radius: 6px
+            padding: 15px
+            text-align: center
+            cursor: pointer
+            position: relative
+            &:hover
+              .copy-tooltip
+                transform: translateX(-50%) rotateX(0deg)
+            .copy-tooltip
+              position: absolute
+              bottom: calc(100% + 15px)
+              left: 50%
+              transform: translateX(-50%) rotateX(90deg)
+              background-color: #333
+              transition: transform .4s ease-in-out
+              color: #fff
+              font-size: 20px
+              font-weight: 600
+              border-radius: 6px
+              padding: 4px 10px
+              > i
+                font-size: 20px
+                color: #4caf50
+                margin-right: 10px
+            i
+              font-size: 60px
+              margin-bottom: 15px
+            .value
+              font-size: 25px
+              font-weight: 600
+              .key
+                font-size: 18px
+                font-weight: normal
+              span
+                overflow: hidden
+                white-space: nowrap
+                display: block
+                text-overflow: ellipsis
+        .foot
+          padding: 15px
+          border-top: 1px solid #ccc
+          .manage-current
+            display: flex
+            justify-content: flex-end
+            grid-gap: 15px
+            i
+              font-size: 22px
+              color: #444
+              cursor: pointer
+              @extend .main-transition
+              &:hover
+                color: #000
+// admin login page
+.login-error-msg
+  position: fixed
+  top: 20px
+  left: 50%
+  transform: translateX(-50%)
+  z-index: 3
+  .error-holder
+    padding: 20px
+    background-color: #101010
+    outline: 3px dotted #f44336
+    border-radius: 6px
+    outline-offset: 2px
+    span
+      color: #fff
+      font-size: 17px
+      font-weight: 500
+.admin-login
+  display: flex
+  > div
+    width: 50%
+    height: 100vh
+  .login
+    display: flex
+    align-items: center
+    justify-content: center
+    .login-holder
+      .title
+        margin-bottom: 20px
+        .attempts-info
+          display: flex
+          align-items: center
+          justify-content: space-between
+          h1
+            color: #181818
+          .info-icon
+            position: relative
+            &:hover
+              .attempts-tooltip
+                transform: translateX(-50%) rotateX(0deg)
+            .attempts-tooltip
+              position: absolute
+              left: 50%
+              transition: transform .3s .7s ease-in-out
+              transform: translateX(-50%) rotateX(90deg)
+              bottom: calc(100% + 20px)
+              background-color: #e9e9e9
+              outline: 2px dotted $todo-main-color
+              border-radius: 6px
+              outline-offset: 2px
+              width: 250px
+              text-align: center
+              font-size: 17px
+              font-weight: 600
+              z-index: 4
+            i
+              font-size: 25px
+              color: #777
+              cursor: pointer
+              &:hover
+                color: $todo-main-color
+                animation: attempts .6s linear forwards
+        > span
+          color: #777
+          letter-spacing: 2px
+      form
+        .input
+          position: relative
+          &:not(:last-child)
+            margin-bottom: 10px
+          i
+            position: absolute
+            top: 50%
+            transform: translateY(-50%)
+            right: 30px
+            cursor: pointer
+            font-size: 25px
+            color: #a6a6a6
+          .placeholder.above-input
+            font-size: 15px
+            font-weight: 600
+            color: $todo-main-color
+            top: 26%
+          .placeholder.invalid
+            color: #f44336
+          .placeholder
+            position: absolute
+            top: 50%
+            left: 30px
+            transform: translateY(-50%)
+            font-size: 20px
+            color: #777
+          .email.invalid
+            border: 2px solid #f44336
+          .password.invalid
+            border: 2px solid #f44336
+          input[type="text"], input[type="password"]
+            width: 100%
+            padding: 30px
+            border: 2px solid transparent
+            outline: none
+            font-size: 18px
+            caret-color: $todo-main-color
+            border-radius: 6px
+            box-shadow: 1px 1px 10px #ddd
+            font-family: "Saira Condensed",sans-serif
+            &:focus
+              border: 2px solid $todo-main-color
+              + span
+                font-size: 15px
+                font-weight: 600
+                color: $todo-main-color
+                top: 26%
+          label
+            margin-left: 35px
+            font-size: 18px
+            color: #777
+            position: relative
+            top: 6px
+          input[type="checkbox"]
+            position: relative
+            appearance: none 
+            &::before
+              content: ""
+              position: absolute
+              left: 0
+              width: 25px
+              height: 25px
+              border: 1px solid #ddd
+              border-radius: 4px
+              top: 50%
+              transform: translateY(-50%)
+            &::after
+              content: "\f164"
+              font-family: "Font Awesome 5 Free"
+              font-weight: 900
+              position: absolute
+              left: 5px
+              top: -8px
+              font-size: 16px
+              opacity: 0
+              transform: scale(0)
+              transition: opacity .3s ease-in-out, transform .3s .2s ease-in-out
+              color: $todo-main-color
+              color: #fff
+            &:checked
+              &::before
+                border: 1px solid $todo-main-color
+                background-color: $todo-main-color
+              &::after
+                opacity: 1
+                transform: scale(1)
+          .submit.disabled
+            pointer-events: none
+            background-image: linear-gradient(45deg, #bababa, transparent)
+          input[type="submit"]
+            display: block
+            width: calc(100% - 150px)
+            margin: 20px auto 0
+            padding: 10px
+            border-radius: 100px
+            border: none
+            outline: none
+            background-image: linear-gradient(45deg, #60c4ff, #0081ce)
+            font-family: "Saira Condensed",sans-serif
+            font-size: 30px
+            font-weight: 600
+            color: #fff
+            cursor: pointer
+            transition: transform .3s ease-in-out
+            &:hover
+              transform: scale(0.9)
+              background-image: linear-gradient(45deg, #0081ce, #60c4ff)
+  .image
+    display: flex
+    align-items: center
+    justify-content: center
+    background-color: #fdfdfd
+.info-container.error
+  .holder
+    .icon
+      i
+        color: #f44336
+    .options
+      a
+        &:hover
+          border: 2px solid #f44336
+.info-container.success.fixed-box
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  height: 100vh
+  background-color: #fff
+  z-index: 6
+  .holder
+    .icon
+      i
+        color: $todo-main-color
+    .options
+      a
+        &:hover
+          border: 2px solid $todo-main-color
+.info-container
+  display: flex
+  align-items: center
+  justify-content: center
+  height: 100vh
+  .holder
+    width: 100%
+    max-width: 500px
+    margin: 0 auto
+    > div
+      &:not(:last-child)
+        margin-bottom: 20px
+    .icon
+      i
+        font-size: 70px
+        color: #ffcc00
+    .msg
+      h1
+        margin: 10px 0
+      > span
+        font-size: 20px
+        color: #4f4f4f
+      .redirecting
+        display: flex
+        align-items: flex-end
+        justify-content: center
+        height: 80px
+        grid-gap: 15px
+        > span
+          width: 30px
+          height: 30px
+          background-color: #eee
+          border-radius: 50%
+          animation: bouncing-balls .5s linear infinite alternate
+          &:first-child
+            animation-delay: .1s
+          &:nth-child(2)
+            animation-delay: .3s
+          &:nth-child(3)
+            animation-delay: .5s
+          &:last-child
+            animation-delay: .7s
+    .options
+      display: flex
+      justify-content: flex-end
+      a
+        display: block
+        padding: 6px 12px
+        border: 2px solid #ddd
+        background-color: #f9f9f9
+        border-radius: 6px
+        font-weight: 600
+        font-size: 20px
+        transform: translateX(0)
+        transition: transform .3s ease-in-out, border .3s ease-in-out
+        &:hover
+          transform: translateX(-5px)
+          border: 2px solid #ffcc00
+// Animation
+@keyframes bouncing-balls
+  0%
+    transform: translateY(0)
+    background-color: $todo-main-color
+  100%
+    transform: translateY(-50px)
+    background-color: #eee
+@keyframes menuicon
+  0%
+    transform: rotate(0deg)
+  100%
+    transform: rotate(360deg)
+@keyframes border-effect
+  from
+    border-right: 1px solid transparent
+  to
+    border-right: 1px solid #fff
+@keyframes type-writer
+  from
+    width: 0  
+  to
+    width: 302px
+@keyframes bounce
+  from
+    transform: translateY(0)
+  to
+    transform: translateY(-150px)
+@keyframes scale
+  0%
+    transform: scale(1)
+  100%
+    transform: scale(1.3)
+@keyframes attempts
+  0%
+    transform: scale(1) rotate(10deg)
+  20%
+    transform: scale(1.2) rotate(-10deg)
+  40%
+    transform: scale(1.4) rotate(15deg)
+  60%
+    transform: scale(1.6) rotate(-15deg)
+  80%
+    transform: scale(1.8) rotate(20deg)
+  100%
+    transform: scale(2) rotate(0deg)
+// boost classes
+.clear-float
+  clear: both
+// responsive
+// medium screen devices
+@media (max-width: 992px)
+  .settings
+    width: 750px
+    .view-managers-info
+      .info-holder
+        .manager-card
+          .body
+            > div
+              width: 48%
+    .delete-manager
+      .managers
+        .table
+          .head
+            h2
+              width: 150px
+          .body
+            .data
+              form
+                > span
+                  width: 150px
+                  overflow: hidden
+                  white-space: nowrap
+                  text-overflow: ellipsis
+// small screen devices
+@media (max-width: 768px)
+  .settings
+    width: 470px
+    .batch-assets
+      .the-actions
+        .the-total
+          display: none
+      .managers-list
+        > span
+          display: block !important
+    .view-managers-info
+      .info-holder
+        .manager-card
+          .body
+            > div
+              width: 100%
+    .delete-manager
+      .assets
+        flex-wrap: wrap
+        .sort
+          width: 100%
+          display: flex
+          justify-content: center
+      .managers
+        .table
+          .head
+            display: none
+          .body
+            padding: 10px 0
+            .data
+              padding: 20px
+              background-color: #fff
+              box-shadow: 1px 1px 10px #ddd
+              border: 1px solid #4c4c4c
+              border-radius: 6px
+              transition: transform .3s ease-in-out, box-shadow .3s .2s ease-in-out
+              transform: scale(1)
+              &:not(:last-child)
+                margin-bottom: 20px
+              &:hover
+                box-shadow: 1px 1px 10px #878787
+                border: 1px solid #a6a6a6
+                transform: scale(1.1)
+                position: relative
+                z-index: 2
+              form
+                flex-wrap: wrap
+                .other-data
+                  position: relative 
+                  order: 1
+                  min-width: 100% 
+                  transform: translate(0) rotate(0) 
+                  margin: 20px 0 0 
+                  &::before
+                    border-width: 0
+                  .data-title
+                    cursor: pointer
+                  .others
+                    display: none
+                .target-manager
+                  padding: 10px 0
+                  border-bottom: 1px solid #ccc
+                  margin-bottom: 20px
+                > span
+                  display: block
+                  width: 100%
+                  &:last-child
+                    margin-top: 20px
+                  .label
+                    display: inline-block
+                    width: 100px
+                    color: #757575
+                  input
+                    &::before
+                      width: 30px
+                      height: 30px
+                    &::after
+                      left: 7px
+                .action
+                  button
+                    i
+                      font-size: 35px
+                      transition: .3s ease-in-out
+                      &:hover
+                        color: #ff1100

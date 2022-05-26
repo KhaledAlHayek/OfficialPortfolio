@@ -1,0 +1,1 @@
+const pageHeaderMenu=document.querySelector(".todo .menu"),dropDownMenu=document.querySelector(".todo .menu .others-drop-down");pageHeaderMenu.addEventListener("mouseover",e=>{"others-menu"==e.target.className&&dropDownMenu.classList.add("show-menu")}),pageHeaderMenu.addEventListener("mouseleave",()=>{dropDownMenu.classList.remove("show-menu")});

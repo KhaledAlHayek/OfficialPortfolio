@@ -1,0 +1,1 @@
+const toggleBox=document.querySelectorAll(".request-successfullt-sent .preview-exp .preview-data .head");toggleBox.forEach(e=>{e.addEventListener("click",()=>{e.classList.toggle("show");const s=e.nextElementSibling;e.classList.contains("show")?(e.classList.add("toggle-info"),s.style.display="block"):(e.classList.remove("toggle-info"),s.style.display="none")})});

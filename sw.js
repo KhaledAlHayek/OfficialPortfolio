@@ -18,23 +18,23 @@ const assets = [
 ];
 
 self.addEventListener("install", e => {
-  e.waitUntil(
+  /* e.waitUntil(
     caches.open(staticCacheName).then(cache => cache.addAll(assets)).then(err => console.log(err))
-  );
+  ); */
 });
 
 self.addEventListener("activate", e => {
-  e.waitUntil(
+  /* e.waitUntil(
     caches.keys().then(keys => {
       return Promise.all(
         keys.filter(key => key !== staticCacheName && key !== dynamicCacheName).map(key => caches.delete(key))
       );
     })
-  )
+  ) */
 });
 
 self.addEventListener("fetch", e => {
-  e.respondWith(
+  /* e.respondWith(
     caches.match(e.request).then(res => {
       return res || fetch(e.request).then(fetchres => {
         caches.open(dynamicCacheName).then(cache => {
@@ -43,5 +43,5 @@ self.addEventListener("fetch", e => {
         })
       })
     }).catch(() => caches.match("/Portfolio/fallback.php"))
-  )
+  ) */
 });

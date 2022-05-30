@@ -379,6 +379,17 @@
       </div>
     </div>
   </section>
+  <section>
+    <div class="admin-dashboard">
+      <div class="notice">
+        <h2>Portfolio Dashboard.</h2>
+        <span>- if you on a mobile phone, I prefer to switch into a PC for user experience purpose. Since the dashboard is not responsive for all type of devices.</span>
+        <span>- Reason for that is mentioned in the portolio panel.</span>
+        <h4>Thank you</h4>
+        <a href="./admin/adminlogin.php">Switch To Dashboard</a>
+      </div>
+    </div>
+  </section>
   <!-- Contact Me -->
   <footer id="contact-me">
     <div class="contact-me">

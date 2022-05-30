@@ -1,4 +1,5 @@
 <?php 
+  ob_start();
   session_start();
   $page_title = "Admin Login - Khaled Ali Hayek Portfolio";
   $js_file = "adminlogin-min.js";
@@ -127,6 +128,15 @@
                 </div>
               </div>
               <span>A customized dashboard to manage <strong>Khaled Ali Hayek</strong> Portfolio</span>
+              <div class="visitor">
+                <h3>Login Credentials</h3>
+                <div>
+                  <span><strong>Email:</strong> visitor@gamil.com</span>
+                </div>
+                <div>
+                  <span><strong>Password:</strong> visitor123@</span>
+                </div>
+              </div>
             </div>
             <form action="<?php echo $_SERVER["PHP_SELF"] ?>" method="POST" id="main-form">
               <div class="input">
@@ -207,4 +217,5 @@
     </div>
     <?php
   }
+  ob_end_flush();
 ?>

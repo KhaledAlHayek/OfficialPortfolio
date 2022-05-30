@@ -711,7 +711,6 @@ header
         text-transform: uppercase
         font-size: 20px
         color: #333
-
 .contact-me
   padding: $section-padding $main-padding
   background-color: #FAFAFA
@@ -758,7 +757,7 @@ header
   right: 0
 .scroll-top
   position: fixed
-  bottom: 10px
+  bottom: 90px
   right: -140px
   width: 140px
   height: 50px
@@ -779,6 +778,36 @@ header
     i
       font-size: 35px
       color: #fff
+.admin-dashboard
+  padding: $section-padding $main-padding
+  background-color: $primary-color
+  .notice
+    max-width: 600px
+    margin: 0 auto
+    width: 100%
+    color: #fff
+    h2
+      margin-bottom: 20px
+    span
+      display: block
+      font-weight: 500
+      &:not(:last-child)
+        margin-bottom: 5px
+    h4
+      margin: 20px 0
+    a
+      padding: 20px
+      width: fit-content
+      display: block
+      font-weight: 700
+      font-size: 22px
+      background-color: #fff
+      border-radius: 50px
+      box-shadow: 0 3px 4px #841200
+      transition: box-shadow .4s ease-in-out
+      &:hover
+        box-shadow: 0 3px 10px #841200
+        color: $primary-color
 .rate.dont-show-again
   height: 0
   overflow: hidden
@@ -920,7 +949,7 @@ header
           color: $primary-color
 .choose-language
   position: fixed
-  bottom: 10px
+  bottom: 90px
   left: 20px
   width: 50px
   height: 50px
@@ -1050,6 +1079,11 @@ header
     .header-content
       z-index: -1
 @media (max-width: 768px)
+  header
+    .header
+      .header-content
+        .img-box
+          width: 400px
   .intro
     .intro-img
       display: none

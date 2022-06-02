@@ -1,7 +1,7 @@
 {
   "name" : "Khaled Hayek Portfoilo Website",
   "short_name" : "Khaled Portfolio",
-  "start_url" : "/index.php",
+  "start_url" : "index.php",
   "display" : "standalone",
   "background_color" : "#fff",
   "theme_color" : "#ffcdc5",
